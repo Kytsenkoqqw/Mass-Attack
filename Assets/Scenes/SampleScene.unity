@@ -747,9 +747,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d446649c622c6f8488ac692e266955f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heal: 10
-  Healthbar: {fileID: 0}
-  HealtBar: {fileID: 2121283890}
 --- !u!65 &758307259
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -958,9 +955,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d446649c622c6f8488ac692e266955f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heal: 10
-  Healthbar: {fileID: 0}
-  HealtBar: {fileID: 2121283890}
 --- !u!65 &1333945979
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1250,9 +1244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d446649c622c6f8488ac692e266955f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heal: 10
-  Healthbar: {fileID: 0}
-  HealtBar: {fileID: 2121283890}
 --- !u!65 &1461421548
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1314,9 +1305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d446649c622c6f8488ac692e266955f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heal: 10
-  Healthbar: {fileID: 0}
-  HealtBar: {fileID: 2121283890}
 --- !u!114 &1478106798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1486,7 +1474,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cc90e2349f2d6a5408d3d07df284c0c7, type: 2}
+  - {fileID: 2100000, guid: 5be8c50f1039a064dbec504f4c58c136, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1525,7 +1513,7 @@ Transform:
   m_GameObject: {fileID: 1812794577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.689812, y: -121.35, z: 54.920185}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalScale: {x: 15, y: 1, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
