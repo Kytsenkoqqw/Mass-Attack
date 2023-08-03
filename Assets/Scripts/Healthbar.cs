@@ -7,23 +7,30 @@ using UnityEngine.UI;
 
 public class Healthbar : MonoBehaviour
 {
-
-    public static float HP = 100f;
+    
     public Image hpBar;
-  
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Enemy")
-        {
-            HP -= 10;
-        }
-        else if (collision.gameObject.tag == "Player")
-        {
-            HP += 10;
-            Destroy(gameObject);
-        }
 
-        HP = Mathf.Clamp(HP, 0, 100);
-        hpBar.fillAmount = HP / 100;
+    private void OnEnable()
+    {
+        PlayerHealth.instance.OnChangeHP += OnChangeHp;
     }
+
+    private void OnDisable()
+    {
+        PlayerHealth.instance.OnChangeHP -= OnChangeHp;
+    }
+
+    private void OnChangeHp(float value)
+    {
+        var hp = Mathf.Clamp(value, 0, 100);
+        hpBar.fillAmount = hp / 100;
+        
+    }
+    
+    
+
+    
+
+      
+    
 }
