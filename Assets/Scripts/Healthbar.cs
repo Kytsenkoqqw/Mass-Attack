@@ -19,12 +19,12 @@ public class Healthbar : MonoBehaviour
     {
         PlayerHealth.instance.OnChangeHP -= OnChangeHp;
     }
-
+    
     private void OnChangeHp(float value)
     {
         var hp = Mathf.Clamp(value, 0, 100);
         hpBar.fillAmount = hp / 100;
-        
+       
     }
     
     
