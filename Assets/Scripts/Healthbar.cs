@@ -10,12 +10,12 @@ public class Healthbar : MonoBehaviour
     
     public Image hpBar;
 
-    private void OnEnable()
+    private void Start()
     {
         PlayerHealth.instance.OnChangeHP += OnChangeHp;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         PlayerHealth.instance.OnChangeHP -= OnChangeHp;
     }
