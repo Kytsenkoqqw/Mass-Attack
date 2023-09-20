@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Joystick _joystick;
     [SerializeField] private float _moveSpeed;
     
-  
     private void FixedUpdate()
     {
         _rigidbody.velocity = new Vector3(_joystick.Horizontal * _moveSpeed, _rigidbody.velocity.y, _joystick.Vertical * _moveSpeed);

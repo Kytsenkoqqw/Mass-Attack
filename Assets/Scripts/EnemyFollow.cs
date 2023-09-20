@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyFollow : MonoBehaviour
 {
     public Transform target; 
-    public float moveSpeed = 5f;
+    private float moveSpeed = 15f;
     private Rigidbody rb;
     private Vector3 respawnPosition;
     

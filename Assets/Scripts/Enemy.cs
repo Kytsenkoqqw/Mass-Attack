@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+	public float damage;
     private void OnCollisionEnter(Collision other)
     {
         if (other.collider.TryGetComponent(out PlayerHealth playerHealth))
         {
-            playerHealth.HP -= 10;
+            playerHealth.HP -= damage; 
         }
     }
 }
