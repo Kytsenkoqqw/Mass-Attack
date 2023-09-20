@@ -9,7 +9,7 @@ public class HeartSpawner : MonoBehaviour
     public float spawnRadius = 10f;
     public float interval = 4f;
     private bool canSpawn = false;
-    public Transform playerTransform;
+    public  Transform playerTransform;
 
     void Start()
     {
