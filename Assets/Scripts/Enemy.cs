@@ -5,7 +5,30 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-	public float damage;
+
+    public int hp = 1;
+    public float damage;
+    
+    public Transform target; 
+    public float moveSpeed = 15f;
+    private Rigidbody rb;
+    private Vector3 respawnPosition;
+    
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        if (target != null)  
+        {
+            Vector3 direction = (target.position - transform.position).normalized;
+            rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
+        }
+    }
+    
     private void OnCollisionEnter(Collision other)
     {
         if (other.collider.TryGetComponent(out PlayerHealth playerHealth))
