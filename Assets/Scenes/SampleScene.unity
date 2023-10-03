@@ -411,7 +411,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 341323357}
-  - component: {fileID: 341323358}
   m_Layer: 0
   m_Name: EnemySpawner (3)
   m_TagString: Untagged
@@ -434,20 +433,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 386856469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &341323358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341323356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c621727ba242b4c4293030a874c27bc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3417918908112620547, guid: 1eff0570d66e1a04e9d1d130b1d5ad23, type: 3}
-  spawnInterval: 4
 --- !u!1 &386856468
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +459,7 @@ Transform:
   m_GameObject: {fileID: 386856468}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3342019, y: 1.9794798, z: 11.863358}
+  m_LocalPosition: {x: 1.3342019, y: 1.9794798, z: 13.363358}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -491,12 +476,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386856468}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c621727ba242b4c4293030a874c27bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3417918908112620547, guid: 1eff0570d66e1a04e9d1d130b1d5ad23, type: 3}
+  enemyPrefab: {fileID: 7509827596507564344, guid: 1eff0570d66e1a04e9d1d130b1d5ad23, type: 3}
   spawnInterval: 4
 --- !u!1 &705507993
 GameObject:
@@ -926,6 +911,7 @@ GameObject:
   - component: {fileID: 1377128146}
   - component: {fileID: 1377128147}
   - component: {fileID: 1377128148}
+  - component: {fileID: 1377128149}
   m_Layer: 0
   m_Name: 'Player '
   m_TagString: Player
@@ -1087,6 +1073,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 100
+--- !u!114 &1377128149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377128140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7608a0db1c411ca44b3434443812d083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 7078629336030340536, guid: 83ce6f26b4c5cd845a0ffd1aa9da4a4e, type: 3}
+  spawnRadius: 50
+  interval: 4
+  playerTransform: {fileID: 1377128145}
 --- !u!1 &1611234536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,54 +1152,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1671157168
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1671157170}
-  - component: {fileID: 1671157169}
-  m_Layer: 0
-  m_Name: HeartSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1671157169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671157168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7608a0db1c411ca44b3434443812d083, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 7078629336030340536, guid: 83ce6f26b4c5cd845a0ffd1aa9da4a4e, type: 3}
-  spawnRadius: 100
-  interval: 4
-  playerTransform: {fileID: 1377128145}
---- !u!4 &1671157170
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671157168}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.177741, y: 21.490604, z: -12.33353}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1462,4 +1416,3 @@ SceneRoots:
   - {fileID: 753625235}
   - {fileID: 386856469}
   - {fileID: 3201645273302397791}
-  - {fileID: 1671157170}

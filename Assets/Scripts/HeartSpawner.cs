@@ -13,6 +13,7 @@ public class HeartSpawner : MonoBehaviour
 
     void Start()
     {
+        playerTransform = transform;
         StartCoroutine(EnableSpawning());
     }
 
@@ -33,8 +34,8 @@ public class HeartSpawner : MonoBehaviour
         if (canSpawn)
         {
             Vector3 randomCirclePoint = UnityEngine.Random.insideUnitCircle.normalized * spawnRadius;
-            Vector3 spawnPosition = new Vector3(randomCirclePoint.x + playerTransform.position.x, playerTransform.position.y,
-                randomCirclePoint.y + playerTransform.position.z);
+            Vector3 spawnPosition = new Vector3(randomCirclePoint.x + transform.position.x, transform.position.y,
+                randomCirclePoint.y + transform.position.z);
             Instantiate(objectPrefab, spawnPosition, Quaternion.identity);
         }
     }

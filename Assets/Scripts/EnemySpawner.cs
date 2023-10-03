@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public Enemy enemyPrefab;
+    public GameObject enemyPrefab;
     public float spawnInterval = 4f;
     private float timeSinceLastSpawn = 0f;
-    private PlayerController player;
+    private GameObject player;
 
     private void Start()
     {
-        player = GameObject.FindObjectOfType<PlayerController>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
@@ -28,12 +28,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        var newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        GameObject newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
 
         if (player != null)
         {
             newEnemy.transform.LookAt(player.transform);
-            newEnemy.target = player.transform;
         }
     }
 }
