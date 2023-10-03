@@ -7,8 +7,7 @@ public class Enemy : MonoBehaviour
 {
 
     public int hp = 1;
-    public float damage;
-    
+    public float damage = 15f;
     public Transform target; 
     public float moveSpeed = 15f;
     private Rigidbody rb;
