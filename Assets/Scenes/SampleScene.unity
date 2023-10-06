@@ -481,10 +481,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c621727ba242b4c4293030a874c27bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPointsAndEnemies:
-  - spawnPoint: {fileID: 1368567752}
-    enemyPrefab: {fileID: 7509827596507564344, guid: dc039fcdc0547bb4d89719e379c1cc3b, type: 3}
   spawnInterval: 2
+  spawnPoints:
+  - {fileID: 827085229}
+  enemyPrefabs:
+  - {fileID: 231614206822794107, guid: 558d85f0d11979447bbfaad9c450498e, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,7 +1173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 7078629336030340536, guid: 83ce6f26b4c5cd845a0ffd1aa9da4a4e, type: 3}
-  spawnRadius: 100
+  spawnRadius: 50
   interval: 4
   playerTransform: {fileID: 1377128145}
 --- !u!4 &1671157170

@@ -5,31 +5,42 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [System.Serializable]
-    public struct EnemySpawnInfo
+    public float spawnInterval = 4f;
+    private float timeSinceLastSpawn = 0f;
+    private PlayerController player;
+    public Transform[] spawnPoints;
+    public Enemy[] enemyPrefabs;
+    
+    private void Start()
     {
-        public Transform spawnPoint; // Точка спавна
-        public GameObject enemyPrefab; // Префаб врага
+        player = GameObject.FindObjectOfType<PlayerController>();
     }
-
-    public EnemySpawnInfo[] spawnPointsAndEnemies; // Массив с информацией о точках спавна и врагах.
-
-    public float spawnInterval = 2f; // Интервал между спавнами.
-    private float nextSpawnTime = 0f;
 
     private void Update()
     {
-        // Проверяем, прошло ли достаточно времени для следующего спавна.
-        if (Time.time >= nextSpawnTime)
+        timeSinceLastSpawn += Time.deltaTime;
+
+        if (timeSinceLastSpawn >= spawnInterval)
         {
-            // Выбираем случайную информацию о спавне.
-            EnemySpawnInfo spawnInfo = spawnPointsAndEnemies[UnityEngine.Random.Range(0, spawnPointsAndEnemies.Length)];
+            SpawnEnemy();
+            timeSinceLastSpawn = 0f;
+        }
+    }
 
-            // Создаем врага в выбранной точке спавна.
-            Instantiate(spawnInfo.enemyPrefab, spawnInfo.spawnPoint.position, spawnInfo.spawnPoint.rotation);
+    private void SpawnEnemy()
+    {
+        Transform randomSpawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
 
-            // Устанавливаем время следующего спавна.
-            nextSpawnTime = Time.time + spawnInterval;
+        // Выбираем случайный префаб врага из массива.
+        Enemy randomEnemyPrefab = enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)];
+
+        // Создаем врага в выбранной точке спавна.
+        var newEnemy = Instantiate(randomEnemyPrefab, randomSpawnPoint.position, Quaternion.identity);
+
+        if (player != null)
+        {
+            newEnemy.transform.LookAt(player.transform);
+            newEnemy.target = player.transform;
         }
     }
 }
