@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawnerr : MonoBehaviour
 {
     [System.Serializable]
     public struct EnemySpawnInfo
@@ -23,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
         if (Time.time >= nextSpawnTime)
         {
             // Выбираем случайную информацию о спавне.
-            EnemySpawnInfo spawnInfo = spawnPointsAndEnemies[UnityEngine.Random.Range(0, spawnPointsAndEnemies.Length)];
+            EnemySpawnInfo spawnInfo = spawnPointsAndEnemies[Random.Range(0, spawnPointsAndEnemies.Length)];
 
             // Создаем врага в выбранной точке спавна.
             Instantiate(spawnInfo.enemyPrefab, spawnInfo.spawnPoint.position, spawnInfo.spawnPoint.rotation);

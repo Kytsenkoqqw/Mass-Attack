@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 49844041690817239}
   - component: {fileID: 2488201319055152397}
   - component: {fileID: 5318790471368695626}
-  - component: {fileID: 2626673711865256345}
+  - component: {fileID: 5148622950046147616}
   m_Layer: 0
   m_Name: KamikazeEnemy (1)
   m_TagString: Enemy
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7509827596507564344}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.98, y: 2.75, z: 2.3992023}
+  m_LocalPosition: {x: -3.5565991, y: 3.51, z: 4.043006}
   m_LocalScale: {x: 1.5, y: 1.4999874, z: 1.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -136,7 +136,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &2626673711865256345
+--- !u!114 &5148622950046147616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7509827596507564344}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8bb31c2543091648b13ba82ea7f847d, type: 3}
+  m_Script: {fileID: 11500000, guid: f6ff870355aaa41469bf20817d1232d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
