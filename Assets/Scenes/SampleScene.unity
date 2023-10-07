@@ -485,7 +485,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 827085229}
   enemyPrefabs:
-  - {fileID: 231614206822794107, guid: 558d85f0d11979447bbfaad9c450498e, type: 3}
+  - {fileID: 4057600765857679469, guid: 558d85f0d11979447bbfaad9c450498e, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

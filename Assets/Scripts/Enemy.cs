@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
         }
     }
     
-    private void OnCollisionEnter(Collision other)
+     public virtual void OnCollisionEnter(Collision other)
     {
         if (other.collider.TryGetComponent(out PlayerHealth playerHealth))
         {

@@ -30,13 +30,9 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         Transform randomSpawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
-
-        // Выбираем случайный префаб врага из массива.
         Enemy randomEnemyPrefab = enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)];
-
-        // Создаем врага в выбранной точке спавна.
         var newEnemy = Instantiate(randomEnemyPrefab, randomSpawnPoint.position, Quaternion.identity);
-
+        
         if (player != null)
         {
             newEnemy.transform.LookAt(player.transform);
