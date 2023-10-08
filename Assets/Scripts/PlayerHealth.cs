@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+   public GameObject OffJoystick;
    public GameObject OffCanvas;
    public int Death = 0;
    public static PlayerHealth instance;
@@ -40,7 +42,10 @@ public class PlayerHealth : MonoBehaviour
    public void Die()
    {
       OffCanvas.SetActive(false);
+      OffJoystick.SetActive(false);
       Destroy(gameObject);
       Time.timeScale = 0;
    }
+   
+   
 }
