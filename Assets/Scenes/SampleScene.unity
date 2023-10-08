@@ -484,7 +484,9 @@ MonoBehaviour:
   spawnInterval: 2
   spawnPoints:
   - {fileID: 827085229}
+  - {fileID: 1368567752}
   enemyPrefabs:
+  - {fileID: 4057600765857679469, guid: 558d85f0d11979447bbfaad9c450498e, type: 3}
   - {fileID: 4057600765857679469, guid: 558d85f0d11979447bbfaad9c450498e, type: 3}
 --- !u!1 &705507993
 GameObject:
@@ -1061,6 +1063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b916ab714f2d2e5499100960178e6e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OffCanvas: {fileID: 324148134}
   hpBar: {fileID: 2121283890}
 --- !u!114 &1377128148
 MonoBehaviour:
@@ -1074,6 +1077,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8f66967484b9749be58c1b160a45c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OffCanvas: {fileID: 303873239}
+  Death: 0
   _hp: 100
 --- !u!1 &1611234536
 GameObject:

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+   public GameObject OffCanvas;
+   public int Death = 0;
    public static PlayerHealth instance;
    public event Action<float> OnChangeHP;
    public float HP
@@ -25,5 +27,20 @@ public class PlayerHealth : MonoBehaviour
       {
          instance = this;
       }
+   }
+
+   private void Update()
+   {
+      if (_hp <= 0)
+      {
+         Die();
+      }
+   }
+
+   public void Die()
+   {
+      OffCanvas.SetActive(false);
+      Destroy(gameObject);
+      Time.timeScale = 0;
    }
 }

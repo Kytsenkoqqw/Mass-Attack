@@ -149,6 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
-  damage: 15
+  damage: 50
   target: {fileID: 0}
   moveSpeed: 15

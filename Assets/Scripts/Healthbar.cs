@@ -7,14 +7,22 @@ using UnityEngine.UI;
 
 public class Healthbar : MonoBehaviour
 {
-    
+    public GameObject OffCanvas;
+    public static Healthbar instance;
     public Image hpBar;
 
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
     private void Start()
     {
         PlayerHealth.instance.OnChangeHP += OnChangeHp;
     }
-
+    
     private void OnDestroy()
     {
         PlayerHealth.instance.OnChangeHP -= OnChangeHp;
@@ -26,11 +34,4 @@ public class Healthbar : MonoBehaviour
         hpBar.fillAmount = hp / 100;
        
     }
-    
-    
-
-    
-
-      
-    
 }
