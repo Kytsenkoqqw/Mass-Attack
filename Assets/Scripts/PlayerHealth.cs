@@ -6,8 +6,9 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+   public GameObject LoseMenu;
    public GameObject OffJoystick;
-   public GameObject OffCanvas;
+   public GameObject OffHpCanvas;
    public int Death = 0;
    public static PlayerHealth instance;
    public event Action<float> OnChangeHP;
@@ -41,9 +42,10 @@ public class PlayerHealth : MonoBehaviour
 
    public void Die()
    {
-      OffCanvas.SetActive(false);
+      OffHpCanvas.SetActive(false);
       OffJoystick.SetActive(false);
       Destroy(gameObject);
+      LoseMenu.SetActive(true);
       Time.timeScale = 0;
    }
    

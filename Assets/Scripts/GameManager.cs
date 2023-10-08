@@ -9,21 +9,33 @@ public class GameManager : MonoBehaviour
 {
     public GameObject PauseMenu;
     
+    
     public void Pause()
     {
-        PauseMenu.SetActive(true);
-        Time.timeScale = 0;
+        if (Time.timeScale != 0)
+        {
+            PauseMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     public void Resume()
     {
-        PauseMenu.SetActive(false);
-        Time.timeScale = 1;
+        if (Time.timeScale !=1)
+        {
+            PauseMenu.SetActive(false);
+            Time.timeScale = 1;
+        }
     }
 
     public void Restart()
     {
         SceneManager.LoadScene("GameScene");
         Time.timeScale = 1;
+    }
+
+    public void ExitToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
