@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
    public static PlayerHealth instance;
    public event Action<float> OnChangeHP;
    public event Action OnDie;
+   [SerializeField] private float _hp = 100f;
    public float HP
    { 
       get =>_hp;
@@ -24,8 +25,6 @@ public class PlayerHealth : MonoBehaviour
       }
    }
 
-   [SerializeField] private float _hp = 100f;
-
    private void Awake()
    {
       if(instance == null)
@@ -33,15 +32,11 @@ public class PlayerHealth : MonoBehaviour
          instance = this;
       }
    }
-   
-   
-
+ 
    private void Die()
    {
       OnDie?.Invoke();
       
       Destroy(gameObject);
    }
-   
-   
 }

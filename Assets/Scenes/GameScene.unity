@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &15643294 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8170153791668043269, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
-  m_PrefabInstance: {fileID: 171733331}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &143749493
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +316,7 @@ GameObject:
   - component: {fileID: 303873241}
   - component: {fileID: 303873240}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HpCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -710,7 +705,7 @@ GameObject:
   - component: {fileID: 753625233}
   - component: {fileID: 753625232}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Joystick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1052,7 +1047,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8170153791668043265, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
   m_PrefabInstance: {fileID: 171733331}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 15643294}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
@@ -1784,6 +1779,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenu: {fileID: 1229615528}
+  LoseMenu: {fileID: 1498083865}
+  OffJoystick: {fileID: 753625231}
+  OffHpCanvas: {fileID: 303873239}
 --- !u!1 &1368567751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,9 +1991,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8f66967484b9749be58c1b160a45c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoseMenu: {fileID: 1498083865}
-  OffJoystick: {fileID: 15643294}
-  OffHpCanvas: {fileID: 303873239}
   Death: 0
   _hp: 100
 --- !u!114 &1377128149

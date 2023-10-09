@@ -12,15 +12,12 @@ public class GameManager : MonoBehaviour
     public GameObject LoseMenu;
     public GameObject OffJoystick;
     public GameObject OffHpCanvas;
-    
-
 
     private void Start()
     {
         PlayerHealth.instance.OnDie+= OnDie;
     }
-
-  
+    
     private void OnDestroy()
     {
         PlayerHealth.instance.OnDie-= OnDie;
