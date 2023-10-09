@@ -6,18 +6,20 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-   public GameObject LoseMenu;
-   public GameObject OffJoystick;
-   public GameObject OffHpCanvas;
    public int Death = 0;
    public static PlayerHealth instance;
    public event Action<float> OnChangeHP;
+   public event Action OnDie;
    public float HP
    { 
       get =>_hp;
       set
       {
          _hp = value;
+         if (_hp <= 0)
+         {
+            Die();
+         }
          OnChangeHP?.Invoke(_hp);
       }
    }
@@ -31,22 +33,14 @@ public class PlayerHealth : MonoBehaviour
          instance = this;
       }
    }
+   
+   
 
-   private void Update()
+   private void Die()
    {
-      if (_hp <= 0)
-      {
-         Die();
-      }
-   }
-
-   public void Die()
-   {
-      OffHpCanvas.SetActive(false);
-      OffJoystick.SetActive(false);
+      OnDie?.Invoke();
+      
       Destroy(gameObject);
-      LoseMenu.SetActive(true);
-      Time.timeScale = 0;
    }
    
    
