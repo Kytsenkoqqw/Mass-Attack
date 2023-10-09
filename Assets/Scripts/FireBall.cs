@@ -1,35 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBall : MonoBehaviour
-{
-    //[SerializeField] private GameObject FireBallPrefab;
-    //private GameObject _fireBall;
-    //public float speed; 
-    
-    public GameObject fireballPrefab;
-    public Transform fireballSpawnPoint;
-    public float fireballSpeed;
-    public float damage = 1;
-    
-    void Update()
+    public class FireBall : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        public GameObject fireballPrefab;
+        public Transform fireballSpawnPoint;
+        public float fireballSpeed;
+        //public float fireRate = 1.0f; 
+        //private float lastFireTime = 0.0f;
+        private bool canShoot = true;
+        void Update()
         {
-            ShootFireball();
+            StartCoroutine(ShootDelay());
+        }
+
+        void ShootFireball()
+        {
+            if (canShoot)
+            {
+                GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, fireballSpawnPoint.rotation);
+                Rigidbody rb = fireball.GetComponent<Rigidbody>();
+                rb.velocity = transform.forward * fireballSpeed;
+            }
+        }
+
+        private IEnumerator ShootDelay()
+        {
+            if (canShoot)
+            {
+                ShootFireball();
+                canShoot = false;
+                yield return new WaitForSeconds(1f);
+                canShoot = true;
+            }
         }
     }
-
-    void ShootFireball()
-    {
-        // Создаем огненный шар из префаба
-        GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, fireballSpawnPoint.rotation);
-    
-        // Добавляем скорость движения огненному шару (может потребоваться настроить скорость)
-        Rigidbody rb = fireball.GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * fireballSpeed;
-    }
-
-
-}
