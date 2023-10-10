@@ -21,7 +21,6 @@ public class DestroyFireBall : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Destroy(gameObject);
-            Debug.Log("Pizda");
         }
     }
 

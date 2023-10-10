@@ -5,6 +5,7 @@ using UnityEngine;
 
     public class FireBall : MonoBehaviour
     {
+        public int damage = 10;
         public GameObject fireballPrefab;
         public Transform fireballSpawnPoint;
         public float fireballSpeed;
@@ -63,6 +64,16 @@ using UnityEngine;
                 canShoot = false;
                 yield return new WaitForSeconds(1f);
                 canShoot = true;
+            }
+        }
+        
+        private void OnTriggerEnter(Collider other)
+        {
+            IDamageable damageable = other.GetComponent<IDamageable>();
+
+            if (damageable != null)
+            {
+                damageable.TakeDamage(damage);
             }
         }
     }

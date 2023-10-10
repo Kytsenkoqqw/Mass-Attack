@@ -2005,6 +2005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b879ae686e89644488ff696987c4842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 50
   fireballPrefab: {fileID: 8145172871155738848, guid: 3c6eb57f5557e444ab3ab210ce3a4418, type: 3}
   fireballSpawnPoint: {fileID: 1377128145}
   fireballSpeed: 35

@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
 
-    [SerializeField] private int hp = 1;
-    public float damage = 15f;
+    public int maxHealth = 100;
+    private int currentHealth;
+    public int damage = 15;
     public Transform target; 
     public float moveSpeed = 15f;
     private Rigidbody rb;
@@ -16,6 +17,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        currentHealth = maxHealth;
     }
 
     private void Update()
@@ -25,6 +27,21 @@ public class Enemy : MonoBehaviour
             Vector3 direction = (target.position - transform.position).normalized;
             rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
         }
+    }
+    
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+    
+    public void Die()
+    {
+        Destroy(gameObject);
     }
     
      public virtual void OnCollisionEnter(Collision other)
