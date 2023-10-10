@@ -8,12 +8,27 @@ using UnityEngine;
         public GameObject fireballPrefab;
         public Transform fireballSpawnPoint;
         public float fireballSpeed;
-        //public float fireRate = 1.0f; 
-        //private float lastFireTime = 0.0f;
         private bool canShoot = true;
+        public float detectionRadius = 10f;
+        private Transform target;
+        
+        
         void Update()
         {
-            StartCoroutine(ShootDelay());
+            if (target != null)
+            {
+                StartCoroutine(ShootDelay());
+            }
+            
+            Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRadius);
+            foreach (Collider collider in colliders)
+            {
+                if (collider.CompareTag("Enemy"))
+                {
+                    target = collider.transform;
+                    break; 
+                }
+            }
         }
 
         void ShootFireball()
@@ -22,7 +37,7 @@ using UnityEngine;
             {
                 GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, fireballSpawnPoint.rotation);
                 Rigidbody rb = fireball.GetComponent<Rigidbody>();
-                rb.velocity = transform.forward * fireballSpeed;
+                rb.velocity = (target.position - fireballSpawnPoint.position).normalized * fireballSpeed;
             }
         }
 

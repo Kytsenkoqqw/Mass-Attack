@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour
     private Rigidbody rb;
     private Vector3 respawnPosition;
     
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
