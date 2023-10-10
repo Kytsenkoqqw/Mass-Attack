@@ -15,11 +15,8 @@ using UnityEngine;
         
         void Update()
         {
-            if (target != null)
-            {
-                StartCoroutine(ShootDelay());
-            }
-            
+            StartCoroutine(ShootDelay());
+
             Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRadius);
             foreach (Collider collider in colliders)
             {
@@ -40,12 +37,29 @@ using UnityEngine;
                 rb.velocity = (target.position - fireballSpawnPoint.position).normalized * fireballSpeed;
             }
         }
-
-        private IEnumerator ShootDelay()
+        
+        void LineShootFireBall()
         {
             if (canShoot)
             {
+                GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, fireballSpawnPoint.rotation);
+                Rigidbody rb = fireball.GetComponent<Rigidbody>();
+                rb.velocity = transform.forward * fireballSpeed;
+            }
+        }
+
+        private IEnumerator ShootDelay()
+        {
+            if (canShoot && target != null)
+            {
                 ShootFireball();
+                canShoot = false;
+                yield return new WaitForSeconds(1f);
+                canShoot = true;
+            }
+            else if (canShoot && target == null)
+            {
+                LineShootFireBall();
                 canShoot = false;
                 yield return new WaitForSeconds(1f);
                 canShoot = true;

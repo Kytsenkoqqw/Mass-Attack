@@ -2008,7 +2008,7 @@ MonoBehaviour:
   fireballPrefab: {fileID: 8145172871155738848, guid: 3c6eb57f5557e444ab3ab210ce3a4418, type: 3}
   fireballSpawnPoint: {fileID: 1377128145}
   fireballSpeed: 35
-  detectionRadius: 10
+  detectionRadius: 25
 --- !u!1 &1498083865
 GameObject:
   m_ObjectHideFlags: 0
