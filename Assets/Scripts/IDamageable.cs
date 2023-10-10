@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDamageable 
+public interface IDamageable
 {
-    void TakeDamage(int damage);
-    void Die();
+    void TakeDamage(float damage);
+}
+
+public interface IHealth
+{
+    float GetMaxHealth { get; }
+    float Health { get; }
 }
