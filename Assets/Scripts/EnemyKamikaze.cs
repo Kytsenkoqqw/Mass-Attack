@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class EnemyKamikaze : Enemy
@@ -16,11 +17,5 @@ public class EnemyKamikaze : Enemy
     }
 }
 
-/*&private void OnTriggerEnter(Collider other)
-{
-    if (other.CompareTag("FireBall"))
-    {
-        Destroy(gameObject);
-    }
-*/
+
 

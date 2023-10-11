@@ -35,7 +35,6 @@ public class FireBall : MonoBehaviour, IDamageGiver
         }
         
     }
-    
 
     IEnumerator TimeDieFireBall()
     {

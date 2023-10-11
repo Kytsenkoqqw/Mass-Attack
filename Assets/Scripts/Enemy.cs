@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IDamageable, IHealth
+public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
 {
-
-    //public int maxHealth = 100;
-    private float currentHealth = 100;
+    public int GetXp => _xp;
+   [SerializeField] private  int _xp = 10;
+   private float currentHealth = 100;
     private float maxHealth = 100;
     public int damage = 15;
     public Transform target;
@@ -63,6 +64,12 @@ public class Enemy : MonoBehaviour, IDamageable, IHealth
 
     private void Die()
     {
+        PlayerCharacter player = FindObjectOfType<PlayerCharacter>();
+
+        if (player != null)
+        {
+            player.AddExperience(_xp);
+        }
         Destroy(gameObject);
     }
 
