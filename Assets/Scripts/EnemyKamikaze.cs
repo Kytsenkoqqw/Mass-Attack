@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class EnemyKamikaze : Enemy
 {
+    //public override int GetXp => 20;
     private void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision);

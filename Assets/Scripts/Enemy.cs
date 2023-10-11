@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
 {
-    public int GetXp => _xp;
+    public virtual int GetXp => _xp;
    [SerializeField] private  int _xp = 10;
    private float currentHealth = 100;
     private float maxHealth = 100;

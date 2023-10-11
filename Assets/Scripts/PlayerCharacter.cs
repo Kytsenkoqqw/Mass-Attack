@@ -5,17 +5,15 @@ using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour, ILevelSystem
 {
-    public int CurrentLevel {  get { return currentLevel; }  }
-    public int CurrentExperience { get { return currentExperience; } }
-    private int currentLevel;
-    private int currentExperience;
+    public int Level { get; private set; }
+    public int Experience { get; private set; }
     private int experienceToNextLevel = 100;
     private Enemy currentEnemy;
     
     public void AddExperience(int experience)
     {
-        currentExperience += experience;
-        if (currentExperience >= experienceToNextLevel)
+        Experience += experience;
+        if (Experience >= experienceToNextLevel)
         {
             IncreaseLevel();
         }
@@ -23,14 +21,14 @@ public class PlayerCharacter : MonoBehaviour, ILevelSystem
 
     void Update()
     {
-        Debug.Log(  "Текущий Уровень" + CurrentLevel + " " + "Текущий опыт" + CurrentExperience);
+        Debug.Log(  "Текущий Уровень" + Level + " " + "Текущий опыт" + Experience);
     }
 
     public void IncreaseLevel()
     {
-        currentLevel++;
-        currentExperience -= experienceToNextLevel;
-        experienceToNextLevel = CalculateExperienceRequiredForNextLevel(currentLevel);
+        Level++;
+        Experience -= experienceToNextLevel;
+        experienceToNextLevel = CalculateExperienceRequiredForNextLevel(Level);
     }
 
     private int CalculateExperienceRequiredForNextLevel(int level)
