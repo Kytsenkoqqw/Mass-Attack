@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
@@ -7,16 +8,27 @@ public class PlayerCharacter : MonoBehaviour, ILevelSystem
 {
     public int Level { get; private set; }
     public int Experience { get; private set; }
-    private int experienceToNextLevel = 100;
+    public int ExperienceToNextLevel { get; private set; } = 100;
     private Enemy currentEnemy;
+    public event Action <int> OnChangeXp;
+    public static PlayerCharacter instance;
+    
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
     
     public void AddExperience(int experience)
     {
         Experience += experience;
-        if (Experience >= experienceToNextLevel)
+        if (Experience >= ExperienceToNextLevel)
         {
             IncreaseLevel();
         }
+        OnChangeXp?.Invoke(Experience);
     }
 
     void Update()
@@ -27,8 +39,8 @@ public class PlayerCharacter : MonoBehaviour, ILevelSystem
     public void IncreaseLevel()
     {
         Level++;
-        Experience -= experienceToNextLevel;
-        experienceToNextLevel = CalculateExperienceRequiredForNextLevel(Level);
+        Experience -= ExperienceToNextLevel;
+        ExperienceToNextLevel = CalculateExperienceRequiredForNextLevel(Level);
     }
 
     private int CalculateExperienceRequiredForNextLevel(int level)
