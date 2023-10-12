@@ -26,7 +26,7 @@ public class LevelCounter : PlayerCharacter
     // Метод для обновления текста уровня
     public void UpdateLevelText(int level)
     {
-        _lvlText.text = "Уровень " + level.ToString();
+        _lvlText.text = level.ToString();
     }
         
     
