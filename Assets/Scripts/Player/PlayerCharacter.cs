@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using TMPro;
 using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour, ILevelSystem
@@ -12,6 +13,7 @@ public class PlayerCharacter : MonoBehaviour, ILevelSystem
     private Enemy currentEnemy;
     public event Action <int> OnChangeXp;
     public static PlayerCharacter instance;
+    
     
     private void Awake()
     {
@@ -45,6 +47,6 @@ public class PlayerCharacter : MonoBehaviour, ILevelSystem
 
     private int CalculateExperienceRequiredForNextLevel(int level)
     {
-        return 100 + (level - 1) * 50; // Пример
+        return 100 + (level - 1) * 50; 
     }
 }

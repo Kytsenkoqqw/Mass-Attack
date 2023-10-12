@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class XpBar : MonoBehaviour
 {
     [SerializeField]private Image _xpBar;
+    
     void Start()
     {
         PlayerCharacter.instance.OnChangeXp += OnChangeXp;
@@ -20,5 +21,6 @@ public class XpBar : MonoBehaviour
         var xpToNextLevel = PlayerCharacter.instance.ExperienceToNextLevel;
         var xp = Mathf.Clamp((float)value, 0, (float)xpToNextLevel);
         _xpBar.fillAmount = xp / xpToNextLevel;
+        
     }
 }
