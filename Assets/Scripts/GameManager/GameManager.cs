@@ -12,15 +12,18 @@ public class GameManager : MonoBehaviour
     public GameObject LoseMenu;
     public GameObject OffJoystick;
     public GameObject OffHpCanvas;
+    public GameObject LevelUpMenu;
 
     private void Start()
     {
         PlayerHealth.instance.OnDie+= OnDie;
+        PlayerCharacter.instance.LevelUp += LevelUp;
     }
     
     private void OnDestroy()
     {
         PlayerHealth.instance.OnDie-= OnDie;
+        PlayerCharacter.instance.LevelUp -= LevelUp;
     }
 
     private void OnDie()
@@ -59,4 +62,18 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    private void LevelUp()
+    {
+        LevelUpMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void FireBallLevelUp()
+    {
+        FireBall.instance._level++;
+        LevelUpMenu.SetActive(false);
+        Time.timeScale = 1;    
+    }
+    
 }

@@ -8,9 +8,17 @@ public class FireBall : MonoBehaviour, IDamageGiver
 {
     public float Damage => DefaultDamage * _level + 10; 
     private bool _firsDie= false;
-    [SerializeField]private float _level = 1;
+    [SerializeField]public float _level = 0;
     private const float DefaultDamage = 10;
+    public static FireBall instance;
     
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
     private void Start()
     {
         StartCoroutine(FirstDieFireBall());
