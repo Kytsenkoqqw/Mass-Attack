@@ -2603,6 +2603,7 @@ GameObject:
   - component: {fileID: 1377128148}
   - component: {fileID: 1377128149}
   - component: {fileID: 1377128150}
+  - component: {fileID: 1377128151}
   m_Layer: 0
   m_Name: 'Player '
   m_TagString: Player
@@ -2778,11 +2779,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b879ae686e89644488ff696987c4842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
-  fireballPrefab: {fileID: 8145172871155738848, guid: 3c6eb57f5557e444ab3ab210ce3a4418, type: 3}
-  fireballSpawnPoint: {fileID: 1377128145}
-  fireballSpeed: 35
-  detectionRadius: 25
+  _detectionRadius: 25
+  _damage: 10
+  _bulletPrefab: {fileID: -6622345384930786184, guid: 3c6eb57f5557e444ab3ab210ce3a4418, type: 3}
+  _bulletSpawnPoint: {fileID: 1377128145}
+  _bulletSpeed: 25
 --- !u!114 &1377128150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2795,6 +2796,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e176d47e23d4241aea2128b044de81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1377128151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377128140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6902647e38f9cf943a164d14edf21fd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detectionRadius: 25
+  _damage: 5
+  _bulletPrefab: {fileID: -1512949671712415486, guid: 826226c4e3468ae47b2b78e2793f71ab, type: 3}
+  _bulletSpawnPoint: {fileID: 1377128145}
+  _bulletSpeed: 50
 --- !u!1 &1490141598
 GameObject:
   m_ObjectHideFlags: 0

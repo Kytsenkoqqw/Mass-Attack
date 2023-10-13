@@ -7,12 +7,12 @@ using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour, ILevelSystem
 {
-    public int Level { get; private set; }
-    public int Experience { get; private set; }
+    public int Level { get; private set; } = 1;
+    public int Experience { get; private set; } = 0;
     public int ExperienceToNextLevel { get; private set; } = 100;
     private Enemy currentEnemy;
     public event Action <int> OnChangeXp;
-    public event Action LevelUp;
+    public event Action <int>LevelUp;
     public static PlayerCharacter instance;
     
     
@@ -30,7 +30,7 @@ public class PlayerCharacter : MonoBehaviour, ILevelSystem
         if (Experience >= ExperienceToNextLevel)
         {
             IncreaseLevel();
-            LevelUp?.Invoke();
+            LevelUp?.Invoke(Level);
         }
         OnChangeXp?.Invoke(Experience);
         

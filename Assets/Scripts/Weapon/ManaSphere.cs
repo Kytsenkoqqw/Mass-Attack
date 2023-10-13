@@ -1,10 +1,9 @@
 using System.Collections;
+using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 
-public class FireBall : Bullet
+public class ManaSphere : Bullet
 {
-    
-
-  
+   
 }

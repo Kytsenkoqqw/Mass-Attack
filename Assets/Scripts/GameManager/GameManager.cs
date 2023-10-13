@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    private void LevelUp()
+    private void LevelUp(int level)
     {
         LevelUpMenu.SetActive(true);
         Time.timeScale = 0;
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
 
     public void FireBallLevelUp()
     {
-        FireBall.instance._level++;
+        FireBallShooter.instance.BulletLevel++;
         LevelUpMenu.SetActive(false);
         Time.timeScale = 1;    
     }

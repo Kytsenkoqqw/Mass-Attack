@@ -8,30 +8,31 @@ public class LevelCounter : PlayerCharacter
 {
     
     [SerializeField] private TextMeshProUGUI _lvlText;
-    private int _level = PlayerCharacter.instance.Level;
-    
+
     private void Start()
     {
-        // Присвоение начального текста при старте
-        UpdateLevelText(_level);
+        
+        LevelUp(PlayerCharacter.instance.Level);
+        PlayerCharacter.instance.LevelUp += LevelUp;
+    }
+    private void OnDestroy()
+    {
+        PlayerCharacter.instance.LevelUp -= LevelUp;
     }
 
     void Update()
     {
-        _level = PlayerCharacter.instance.Level;
-        if (_lvlText.text != _level.ToString())
-        {
-            UpdateLevelText(_level);
-        }
+        
+       
     }
 
-    // Метод для обновления текста уровня
-    public void UpdateLevelText(int _level)
+    private void LevelUp( int level)
     {
-        _lvlText.text = _level.ToString();
-        Debug.Log(PlayerCharacter.instance.Level + " " + PlayerCharacter.instance.Experience);
+        if (_lvlText.text != level.ToString())
+        {
+            _lvlText.text = level.ToString();
+            Debug.Log(PlayerCharacter.instance.Level + " " + PlayerCharacter.instance.Experience);
+        }
     }
-        
-    
     
 }
