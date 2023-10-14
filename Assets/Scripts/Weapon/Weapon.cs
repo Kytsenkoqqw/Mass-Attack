@@ -3,7 +3,7 @@ using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Weapon<TBullet> : MonoBehaviour where TBullet : Bullet
+public abstract class Weapon<TBullet> : MonoBehaviour where TBullet : Bullet
 {
     public int BulletLevel { set; get; } = 1;
     
