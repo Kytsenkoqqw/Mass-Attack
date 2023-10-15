@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
     public int damage = 15;
     public Transform target;
     public float moveSpeed = 15f;
-    private Rigidbody rb;
+    public Rigidbody rb;
     private Vector3 respawnPosition;
     public float GetMaxHealth => maxHealth;
 
