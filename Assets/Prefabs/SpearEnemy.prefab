@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1212358214666851817}
   - component: {fileID: 2279832946526527014}
   - component: {fileID: 6152582531023805358}
-  - component: {fileID: 764281286033302825}
+  - component: {fileID: 7837164367418973633}
   m_Layer: 0
   m_Name: SpearEnemy
   m_TagString: Enemy
@@ -137,7 +137,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &764281286033302825
+--- !u!114 &7837164367418973633
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,8 +155,8 @@ MonoBehaviour:
   moveSpeed: 15
   rb: {fileID: 6152582531023805358}
   spearTarget: {fileID: 0}
-  pushForce: 150
-  pushDistance: 100
+  pushForce: 100
+  pushDistance: 125
 --- !u!1001 &3710567645586881079
 PrefabInstance:
   m_ObjectHideFlags: 0

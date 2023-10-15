@@ -5,10 +5,10 @@ namespace DefaultNamespace
 {
     public abstract class Bullet : MonoBehaviour, IDamageGiver
     {
-        public float Damage => DefaultDamage * Level + 10;
+        public virtual float Damage => DefaultDamage * Level + 10;
         [HideInInspector] public float Level = 1;
         
-        private const float DefaultDamage = 10;
+        protected virtual  float DefaultDamage => 10;
         
         private void Start()
         {

@@ -27,7 +27,15 @@ public abstract class Weapon<TBullet> : MonoBehaviour where TBullet : Bullet
 
     public void BulletLevelUp()
     {
-        BulletLevel++;
+        if (!enabled)
+        {
+            enabled = true;
+        }
+        else
+        {
+            BulletLevel++; 
+        }
+        
     }
 
     private void SearchEnemy ()

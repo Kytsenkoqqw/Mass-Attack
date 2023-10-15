@@ -75,30 +75,24 @@ public class GameManager : MonoBehaviour
 
     public void FireBallLevelUp()
     {
-        if (_player.GetComponent<FireBallWeapon>().enabled == false)
-        {
-            _player.GetComponent<FireBallWeapon>().enabled = true;
-        }
-        else
-        {
-            FireBallWeapon.instance.BulletLevelUp();
-        }
-        
+        FireBallWeapon.instance.BulletLevelUp();
         _levelUpMenu.SetActive(false);
         Time.timeScale = 1;    
     }
+    
     public void ManaSphereLevelUp()
     {
-        if (_player.GetComponent<ManaSphereWeapon>().enabled == false)
-        {
-            _player.GetComponent<ManaSphereWeapon>().enabled = true;
-        }
-        else
-        {
-            ManaSphereWeapon.instance.BulletLevelUp();
-        }
-        
+        ManaSphereWeapon.instance.BulletLevelUp();
         _levelUpMenu.SetActive(false);
         Time.timeScale = 1;    
     }
+    
+    public void PoisonSphereLevelUP()
+    {
+        PoisonSphereWeapon.instance.BulletLevelUp();
+        _levelUpMenu.SetActive(false);
+        Time.timeScale = 1;    
+    }
+    
+    
 }

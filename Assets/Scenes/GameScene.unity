@@ -530,63 +530,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215940847}
   m_CullTransparentMesh: 1
---- !u!1001 &219361829
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 697046748131784330, guid: e34d0c01643623047be804496ac7a373, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10.876504
-      objectReference: {fileID: 0}
-    - target: {fileID: 697046748131784330, guid: e34d0c01643623047be804496ac7a373, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 697046748131784330, guid: e34d0c01643623047be804496ac7a373, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.0616326
-      objectReference: {fileID: 0}
-    - target: {fileID: 697046748131784330, guid: e34d0c01643623047be804496ac7a373, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 697046748131784330, guid: e34d0c01643623047be804496ac7a373, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 697046748131784330, guid: e34d0c01643623047be804496ac7a373, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 697046748131784330, guid: e34d0c01643623047be804496ac7a373, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 697046748131784330, guid: e34d0c01643623047be804496ac7a373, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 697046748131784330, guid: e34d0c01643623047be804496ac7a373, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 697046748131784330, guid: e34d0c01643623047be804496ac7a373, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7582119647755930734, guid: e34d0c01643623047be804496ac7a373, type: 3}
-      propertyPath: m_Name
-      value: SpearEnemy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e34d0c01643623047be804496ac7a373, type: 3}
 --- !u!1 &303873239
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +792,7 @@ MonoBehaviour:
   - {fileID: 827085229}
   - {fileID: 714071971}
   enemyPrefabs:
-  - {fileID: 764281286033302825, guid: e34d0c01643623047be804496ac7a373, type: 3}
+  - {fileID: 7837164367418973633, guid: e34d0c01643623047be804496ac7a373, type: 3}
   - {fileID: 4057600765857679469, guid: 558d85f0d11979447bbfaad9c450498e, type: 3}
 --- !u!1 &445419351
 GameObject:
@@ -1098,7 +1041,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 657743448}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1329272885}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: PoisonSphereLevelUP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &657743448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2674,6 +2629,7 @@ GameObject:
   - component: {fileID: 1377128149}
   - component: {fileID: 1377128150}
   - component: {fileID: 1377128151}
+  - component: {fileID: 1377128152}
   m_Layer: 0
   m_Name: 'Player '
   m_TagString: Player
@@ -2881,6 +2837,22 @@ MonoBehaviour:
   _bulletPrefab: {fileID: -1512949671712415486, guid: 826226c4e3468ae47b2b78e2793f71ab, type: 3}
   _bulletSpawnPoint: {fileID: 1377128145}
   _bulletSpeed: 50
+--- !u!114 &1377128152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377128140}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7073aabec2c4d844b8fd410095294a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detectionRadius: 25
+  _bulletPrefab: {fileID: 3934202962537391063, guid: 372ed743c079765449a429566d34cc60, type: 3}
+  _bulletSpawnPoint: {fileID: 1377128145}
+  _bulletSpeed: 25
 --- !u!1 &1490141598
 GameObject:
   m_ObjectHideFlags: 0
@@ -4001,4 +3973,3 @@ SceneRoots:
   - {fileID: 386856469}
   - {fileID: 1671157170}
   - {fileID: 1329272884}
-  - {fileID: 219361829}
