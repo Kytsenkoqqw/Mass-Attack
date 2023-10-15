@@ -14,11 +14,14 @@ public class GameManager : MonoBehaviour
     [FormerlySerializedAs("OffJoystick")] [SerializeField] private  GameObject _joystick;
     [FormerlySerializedAs("OffHpCanvas")] [SerializeField] private  GameObject _hpCanvas;
     [FormerlySerializedAs("LevelUpMenu")] [SerializeField] private  GameObject _levelUpMenu;
+    [SerializeField] private GameObject _player;
 
     private void Start()
     {
         PlayerHealth.instance.OnDie+= OnDie;
         PlayerCharacter.instance.LevelUp += LevelUp;
+        _levelUpMenu.SetActive(true);
+        Time.timeScale = 0;
     }
     
     private void OnDestroy()
@@ -72,13 +75,29 @@ public class GameManager : MonoBehaviour
 
     public void FireBallLevelUp()
     {
-        FireBallWeapon.instance.BulletLevelUp();
+        if (_player.GetComponent<FireBallWeapon>().enabled == false)
+        {
+            _player.GetComponent<FireBallWeapon>().enabled = true;
+        }
+        else
+        {
+            FireBallWeapon.instance.BulletLevelUp();
+        }
+        
         _levelUpMenu.SetActive(false);
         Time.timeScale = 1;    
     }
     public void ManaSphereLevelUp()
     {
-        ManaSphereWeapon.instance.BulletLevelUp();
+        if (_player.GetComponent<ManaSphereWeapon>().enabled == false)
+        {
+            _player.GetComponent<ManaSphereWeapon>().enabled = true;
+        }
+        else
+        {
+            ManaSphereWeapon.instance.BulletLevelUp();
+        }
+        
         _levelUpMenu.SetActive(false);
         Time.timeScale = 1;    
     }

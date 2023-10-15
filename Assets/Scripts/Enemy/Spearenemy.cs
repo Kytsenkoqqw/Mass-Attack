@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spearenemy : Enemy
+public class SpearEnemy : Enemy
 {
     public Transform spearTarget;
     public float pushForce = 10f; 
@@ -12,10 +12,7 @@ public class Spearenemy : Enemy
     {
         if (target != null)
         {
-            Vector3 direction = target.position - transform.position;
-            transform.rotation = Quaternion.LookRotation(direction);
-            Vector3 directionMove = (target.position - transform.position).normalized;
-            rb.MovePosition(transform.position + directionMove * moveSpeed * Time.deltaTime);
+            MoveToTarget();
         }
     }
     
@@ -32,5 +29,13 @@ public class Spearenemy : Enemy
                 playerRb.AddForce(pushDirection * pushForce, ForceMode.Impulse);
             }
         }
+    }
+
+    void MoveToTarget()
+    {
+        Vector3 direction = target.position - transform.position;
+        transform.rotation = Quaternion.LookRotation(direction);
+        Vector3 directionMove = (target.position - transform.position).normalized;
+        rb.MovePosition(transform.position + directionMove * moveSpeed * Time.deltaTime);
     }
 }
