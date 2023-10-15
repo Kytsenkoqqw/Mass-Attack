@@ -5,14 +5,15 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngineInternal;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject PauseMenu;
-    public GameObject LoseMenu;
-    public GameObject OffJoystick;
-    public GameObject OffHpCanvas;
-    public GameObject LevelUpMenu;
+    [FormerlySerializedAs("PauseMenu")] [SerializeField] private GameObject _pauseMenu;
+    [FormerlySerializedAs("LoseMenu")] [SerializeField] private  GameObject _loseMenu;
+    [FormerlySerializedAs("OffJoystick")] [SerializeField] private  GameObject _joystick;
+    [FormerlySerializedAs("OffHpCanvas")] [SerializeField] private  GameObject _hpCanvas;
+    [FormerlySerializedAs("LevelUpMenu")] [SerializeField] private  GameObject _levelUpMenu;
 
     private void Start()
     {
@@ -28,9 +29,9 @@ public class GameManager : MonoBehaviour
 
     private void OnDie()
     {   
-        OffHpCanvas.SetActive(false);
-        OffJoystick.SetActive(false);
-        LoseMenu.SetActive(true);
+        _hpCanvas.SetActive(false);
+        _joystick.SetActive(false);
+        _loseMenu.SetActive(true);
         Time.timeScale = 0;
     }
 
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         if (Time.timeScale != 0)
         {
-            PauseMenu.SetActive(true);
+            _pauseMenu.SetActive(true);
             Time.timeScale = 0;
         }
     }
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour
     {
         if (Time.timeScale !=1)
         {
-            PauseMenu.SetActive(false);
+            _pauseMenu.SetActive(false);
             Time.timeScale = 1;
         }
     }
@@ -65,15 +66,20 @@ public class GameManager : MonoBehaviour
 
     private void LevelUp(int level)
     {
-        LevelUpMenu.SetActive(true);
+        _levelUpMenu.SetActive(true);
         Time.timeScale = 0;
     }
 
     public void FireBallLevelUp()
     {
-        FireBallShooter.instance.BulletLevel++;
-        LevelUpMenu.SetActive(false);
+        FireBallWeapon.instance.BulletLevelUp();
+        _levelUpMenu.SetActive(false);
         Time.timeScale = 1;    
     }
-    
+    public void ManaSphereLevelUp()
+    {
+        ManaSphereWeapon.instance.BulletLevelUp();
+        _levelUpMenu.SetActive(false);
+        Time.timeScale = 1;    
+    }
 }

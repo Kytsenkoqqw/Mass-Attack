@@ -521,7 +521,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 
 --- !u!222 &215940850
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2389,7 +2389,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1275793627}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1329272885}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ManaSphereLevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1275793627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2549,11 +2561,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d4dd71926c9854bb0f3719b47dcf01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 1229615528}
-  LoseMenu: {fileID: 1498083865}
-  OffJoystick: {fileID: 753625231}
-  OffHpCanvas: {fileID: 303873239}
-  LevelUpMenu: {fileID: 1490141598}
+  _pauseMenu: {fileID: 1229615528}
+  _loseMenu: {fileID: 1498083865}
+  _joystick: {fileID: 753625231}
+  _hpCanvas: {fileID: 303873239}
+  _levelUpMenu: {fileID: 1490141598}
 --- !u!1 &1368567751
 GameObject:
   m_ObjectHideFlags: 0
@@ -2780,7 +2792,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionRadius: 25
-  _damage: 10
   _bulletPrefab: {fileID: -6622345384930786184, guid: 3c6eb57f5557e444ab3ab210ce3a4418, type: 3}
   _bulletSpawnPoint: {fileID: 1377128145}
   _bulletSpeed: 25
@@ -2809,7 +2820,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionRadius: 25
-  _damage: 5
   _bulletPrefab: {fileID: -1512949671712415486, guid: 826226c4e3468ae47b2b78e2793f71ab, type: 3}
   _bulletSpawnPoint: {fileID: 1377128145}
   _bulletSpeed: 50
@@ -3038,7 +3048,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 
 --- !u!222 &1550247389
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3318,7 +3328,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 
 --- !u!222 &1636210555
 CanvasRenderer:
   m_ObjectHideFlags: 0
