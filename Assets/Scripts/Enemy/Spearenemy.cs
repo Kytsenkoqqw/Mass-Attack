@@ -21,7 +21,8 @@ public class Spearenemy : Enemy
     
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<PlayerController>())
+        base.OnCollisionEnter(collision);
+        if (collision.gameObject.tag == "Player")
         {
             Rigidbody playerRb = collision.gameObject.GetComponent<Rigidbody>();
 
