@@ -4,10 +4,13 @@ using UnityEngine;
 
 public abstract class Weapon<TBullet> : MonoBehaviour where TBullet : Bullet
 {
-    public int BulletLevel { private set; get; } = 1;
     
+    public int BulletLevel { private set; get; } = 1;
+    public virtual float Damage => DefaultDamage * BulletLevel + 10;
+    protected virtual  float DefaultDamage => 10;
     protected Transform Target;
     protected virtual float DelayShoot { set; get; } = 1f;
+    
     
     [SerializeField] private float _detectionRadius = 10f;
     [SerializeField] private TBullet _bulletPrefab;
@@ -55,7 +58,7 @@ public abstract class Weapon<TBullet> : MonoBehaviour where TBullet : Bullet
     {
         var bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
         var rb = bullet.GetComponent<Rigidbody>();
-        bullet.Level = BulletLevel;
+        bullet.Damage = Damage;
         return rb;
     }
 

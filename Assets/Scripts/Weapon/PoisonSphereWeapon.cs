@@ -5,6 +5,7 @@ using UnityEngine;
 public class PoisonSphereWeapon : Weapon<PoisonSphere>
 {
     public static PoisonSphereWeapon instance;
+    protected override float DefaultDamage => 30f;
 
     protected override float DelayShoot { get; set; } = 2f;
 

@@ -5,5 +5,5 @@ using UnityEngine;
 
 public class PoisonSphere : Bullet
 {
-    protected override float DefaultDamage => 30f;
+    
 }
