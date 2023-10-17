@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
+using Weapon;
 
 public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
 {
@@ -35,7 +36,7 @@ public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
         currentHealth = maxHealth;
     }
     
-    private void Update()
+    protected virtual void FixedUpdate()
     {
         if (target != null)
         {

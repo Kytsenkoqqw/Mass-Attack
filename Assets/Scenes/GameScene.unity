@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2451,6 +2451,7 @@ GameObject:
   - component: {fileID: 1377128150}
   - component: {fileID: 1377128151}
   - component: {fileID: 1377128152}
+  - component: {fileID: 1377128153}
   m_Layer: 0
   m_Name: 'Player '
   m_TagString: Player
@@ -2626,10 +2627,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b879ae686e89644488ff696987c4842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _icon: {fileID: 0}
   _detectionRadius: 25
-  _bulletPrefab: {fileID: -6622345384930786184, guid: 3c6eb57f5557e444ab3ab210ce3a4418, type: 3}
   _bulletSpawnPoint: {fileID: 1377128145}
   _bulletSpeed: 25
+  _bulletPrefab: {fileID: -6622345384930786184, guid: 3c6eb57f5557e444ab3ab210ce3a4418, type: 3}
 --- !u!114 &1377128150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2654,10 +2656,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6902647e38f9cf943a164d14edf21fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _icon: {fileID: 0}
   _detectionRadius: 25
-  _bulletPrefab: {fileID: -1512949671712415486, guid: 826226c4e3468ae47b2b78e2793f71ab, type: 3}
   _bulletSpawnPoint: {fileID: 1377128145}
   _bulletSpeed: 50
+  _bulletPrefab: {fileID: -1512949671712415486, guid: 826226c4e3468ae47b2b78e2793f71ab, type: 3}
 --- !u!114 &1377128152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2670,10 +2673,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7073aabec2c4d844b8fd410095294a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _icon: {fileID: 0}
   _detectionRadius: 25
-  _bulletPrefab: {fileID: 3934202962537391063, guid: 372ed743c079765449a429566d34cc60, type: 3}
   _bulletSpawnPoint: {fileID: 1377128145}
   _bulletSpeed: 25
+  _bulletPrefab: {fileID: 3934202962537391063, guid: 372ed743c079765449a429566d34cc60, type: 3}
+--- !u!114 &1377128153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377128140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88fb2d1f1d0a4bf7bf02334ed6af22c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fireballWeapon: {fileID: 1377128149}
+  _manaSphereWeapon: {fileID: 1377128151}
+  _poisonSphereWeapon: {fileID: 1377128152}
 --- !u!1 &1490141598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2686,6 +2705,7 @@ GameObject:
   - component: {fileID: 1490141601}
   - component: {fileID: 1490141600}
   - component: {fileID: 1490141602}
+  - component: {fileID: 1490141603}
   m_Layer: 5
   m_Name: LevelUpChoice
   m_TagString: Untagged
@@ -2779,6 +2799,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1490141603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490141598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fdc72adb3404f28baea5f020a46488f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 0}
+  _parent: {fileID: 1490141599}
 --- !u!1 &1498083865
 GameObject:
   m_ObjectHideFlags: 0
@@ -3872,6 +3906,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1490141599}
     m_Modifications:
+    - target: {fileID: 1812867462690789853, guid: 776808123c1843c4cadfc34caa3ca972, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812867462690789853, guid: 776808123c1843c4cadfc34caa3ca972, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812867462690789853, guid: 776808123c1843c4cadfc34caa3ca972, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1329272885}
+    - target: {fileID: 1812867462690789853, guid: 776808123c1843c4cadfc34caa3ca972, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812867462690789853, guid: 776808123c1843c4cadfc34caa3ca972, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FireBallLevelUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812867462690789853, guid: 776808123c1843c4cadfc34caa3ca972, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812867462690789853, guid: 776808123c1843c4cadfc34caa3ca972, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2067892541545049123, guid: 776808123c1843c4cadfc34caa3ca972, type: 3}
       propertyPath: m_Name
       value: FireBall

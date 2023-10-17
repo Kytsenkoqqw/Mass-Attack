@@ -151,5 +151,5 @@ MonoBehaviour:
   _xp: 25
   damage: 50
   target: {fileID: 0}
-  moveSpeed: 30
+  moveSpeed: 5
   rb: {fileID: 0}
