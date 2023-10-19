@@ -7,7 +7,6 @@ using UnityEngineInternal;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
-using Weapon;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,15 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _player;
     [SerializeField] private Image _fireBallImage;
     [SerializeField] private Image _manaSphereImage;
-    [SerializeField] private Image _poisonSphereImage;   
-    private IWeaponManager _weaponManager;
-    public static GameManager instance;
-
-    private void Awake()
-    {
-        if (instance == null)
-            instance = this;
-    }
+    [SerializeField] private Image _poisonSphereImage;
 
     private void Start()
     {
@@ -38,7 +29,6 @@ public class GameManager : MonoBehaviour
         _fireBallImage.gameObject.SetActive(false);
         _manaSphereImage.gameObject.SetActive(false);
         _poisonSphereImage.gameObject.SetActive(false);
-        _weaponManager = WeaponManager.instance;
     }
     
     private void OnDestroy()
@@ -90,9 +80,39 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void DisableLevelUpMenu()
+    public void FireBallLevelUp()
     {
+        if (_fireBallImage.gameObject.activeSelf == false)
+        {
+            _fireBallImage.gameObject.SetActive(true);
+        }
+        
+        FireBallWeapon.instance.BulletLevelUp();
         _levelUpMenu.SetActive(false);
-        Time.timeScale = 1f;
+        Time.timeScale = 1;    
+    }
+    
+    public void ManaSphereLevelUp()
+    {
+        if (_manaSphereImage.gameObject.activeSelf == false)
+        {
+            _manaSphereImage.gameObject.SetActive(true);
+        }
+        
+        ManaSphereWeapon.instance.BulletLevelUp();
+        _levelUpMenu.SetActive(false);
+        Time.timeScale = 1;    
+    }
+    
+    public void PoisonSphereLevelUP()
+    {
+        if (_poisonSphereImage.gameObject.activeSelf == false)
+        {
+            _poisonSphereImage.gameObject.SetActive(true);
+        }
+        
+        PoisonSphereWeapon.instance.BulletLevelUp();
+        _levelUpMenu.SetActive(false);
+        Time.timeScale = 1;    
     }
 }

@@ -1,7 +1,12 @@
-    namespace Weapon
+    public class FireBallWeapon : Weapon <FireBall>
     {
-        public class FireBallWeapon : Weapon <FireBall>
+        public static FireBallWeapon instance;
+
+        private void Awake()
         {
-            public override WeaponType Type => WeaponType.Fire;
+            if(instance == null)
+            {
+                instance = this;
+            }
         }
     }

@@ -1,7 +1,9 @@
-namespace Weapon
+using System.Collections;
+using System.Collections.Generic;
+using DefaultNamespace;
+using UnityEngine;
+
+public class PoisonSphere : Bullet
 {
-    public class PoisonSphere : Bullet
-    {
     
-    }
 }

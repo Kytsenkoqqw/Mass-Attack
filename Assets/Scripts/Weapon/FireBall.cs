@@ -1,9 +1,10 @@
-namespace Weapon
+using System.Collections;
+using DefaultNamespace;
+using UnityEngine;
+
+public class FireBall : Bullet
 {
-    public class FireBall : Bullet
-    {
     
 
   
-    }
 }

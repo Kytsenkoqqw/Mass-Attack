@@ -1,4 +1,4 @@
-﻿namespace Weapon
+﻿namespace DefaultNamespace
 {
     public interface IDamageGiver
     {

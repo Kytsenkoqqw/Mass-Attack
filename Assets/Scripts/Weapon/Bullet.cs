@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Weapon
+namespace DefaultNamespace
 {
     public abstract class Bullet : MonoBehaviour, IDamageGiver
     {

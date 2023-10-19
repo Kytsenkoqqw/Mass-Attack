@@ -1,9 +1,19 @@
-namespace Weapon
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ManaSphereWeapon : Weapon <ManaSphere>
 {
-    public class ManaSphereWeapon : Weapon <ManaSphere>
+    public static ManaSphereWeapon instance;
+
+    protected override float DelayShoot { get; set; } = 0.5f;
+
+    private void Awake()
     {
-        public override WeaponType Type => WeaponType.Mana;
-        protected override float DelayShoot { get; set; } = 0.5f;
-        
+        if(instance == null)
+        {
+            instance = this;
+        }
     }
+    
 }
