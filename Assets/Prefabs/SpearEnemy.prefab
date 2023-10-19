@@ -152,7 +152,7 @@ MonoBehaviour:
   _xp: 10
   damage: 15
   target: {fileID: 0}
-  moveSpeed: 30
+  moveSpeed: 5
   rb: {fileID: 6152582531023805358}
   spearTarget: {fileID: 0}
   pushForce: 100

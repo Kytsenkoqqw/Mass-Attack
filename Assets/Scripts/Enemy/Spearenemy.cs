@@ -8,7 +8,7 @@ public class SpearEnemy : Enemy
     public float pushForce = 10f; 
     public float pushDistance = 2f;
 
-    void Update()
+    protected override void FixedUpdate()
     {
         if (target != null)
         {

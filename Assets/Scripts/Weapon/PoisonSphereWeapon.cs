@@ -1,20 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PoisonSphereWeapon : Weapon<PoisonSphere>
+namespace Weapon
 {
-    public static PoisonSphereWeapon instance;
-    protected override float DefaultDamage => 30f;
-
-    protected override float DelayShoot { get; set; } = 2f;
-
-    private void Awake()
+    public class PoisonSphereWeapon : Weapon<PoisonSphere>
     {
-        if(instance == null)
-        {
-            instance = this;
-        }
-    }
 
+        public override WeaponType Type => WeaponType.Poison;
+        protected override float DefaultDamage => 30f;
+        protected override float DelayShoot { get; set; } = 2f;
+        
+    }
 }
