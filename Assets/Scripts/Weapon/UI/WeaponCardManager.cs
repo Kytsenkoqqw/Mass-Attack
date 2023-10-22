@@ -36,7 +36,7 @@ namespace Weapon.UI
 
         private void LevelUpWeapon(IWeapon weapon)
         {
-            weapon.BulletLevelUp();
+            weapon.LevelUp();
             GameManager.instance.DisableLevelUpMenu();
             ReDraw();
         }

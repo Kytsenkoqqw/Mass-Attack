@@ -1,6 +1,6 @@
-namespace Weapon
+﻿namespace Weapon
 {
-    public class PoisonSphereWeapon : Weapon<PoisonSphere>
+    public class PoisonSphereBulletWeapon : BulletWeapon<PoisonSphere>
     {
 
         public override WeaponType Type => WeaponType.Poison;

@@ -1,9 +1,10 @@
-﻿namespace Weapon
+﻿﻿namespace Weapon
 {
     public enum WeaponType
     {
         Fire,
         Mana,
-        Poison
+        Poison,
+        Exort
     }
 }

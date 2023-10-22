@@ -1,6 +1,6 @@
-    namespace Weapon
+﻿    namespace Weapon
     {
-        public class FireBallWeapon : Weapon <FireBall>
+        public class FireBallBulletWeapon : BulletWeapon <FireBall>
         {
             public override WeaponType Type => WeaponType.Fire;
         }
