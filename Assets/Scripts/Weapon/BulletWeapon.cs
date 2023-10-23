@@ -8,7 +8,7 @@ namespace Weapon
         protected virtual float DelayShoot { set; get; } = 1f;
         
         [SerializeField] private float _detectionRadius = 10f;
-        [SerializeField] private Transform _bulletSpawnPoint;
+        [SerializeField] public Transform _bulletSpawnPoint;
         [SerializeField] private float _bulletSpeed;
         [SerializeField] private TBullet _bulletPrefab;
         
@@ -37,7 +37,7 @@ namespace Weapon
                 }
             }
         }
-    
+        
         private Rigidbody SpawnBullet()
         {
             var bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);

@@ -5,6 +5,7 @@
         Fire,
         Mana,
         Poison,
-        Exort
+        Exort,
+        Thunderbolt
     }
 }
