@@ -5,5 +5,8 @@ using Weapon;
 
 public class Thunderbolt : Bullet
 {
-    
+    protected override void DestroyThis()
+    {
+       
+    }
 }

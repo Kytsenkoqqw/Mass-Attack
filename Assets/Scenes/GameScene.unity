@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2638,10 +2638,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 8b2ffbdfb97e8d34ca5b266bbcf4341d, type: 3}
-  _detectionRadius: 10
-  _bulletSpawnPoint: {fileID: 1377128145}
   _bulletSpeed: 25
   _bulletPrefab: {fileID: -6622345384930786184, guid: 3c6eb57f5557e444ab3ab210ce3a4418, type: 3}
+  _detectionRadius: 10
+  _bulletSpawnPoint: {fileID: 1377128145}
 --- !u!114 &1377128150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2667,10 +2667,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: cc354e3d6e9c12940b225d922993c02e, type: 3}
-  _detectionRadius: 10
-  _bulletSpawnPoint: {fileID: 1377128145}
   _bulletSpeed: 50
   _bulletPrefab: {fileID: -1512949671712415486, guid: 826226c4e3468ae47b2b78e2793f71ab, type: 3}
+  _detectionRadius: 10
+  _bulletSpawnPoint: {fileID: 1377128145}
 --- !u!114 &1377128152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2684,10 +2684,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: d1dccbb937e1dd844a081eb252237027, type: 3}
-  _detectionRadius: 10
-  _bulletSpawnPoint: {fileID: 1377128145}
   _bulletSpeed: 25
   _bulletPrefab: {fileID: 3934202962537391063, guid: 372ed743c079765449a429566d34cc60, type: 3}
+  _detectionRadius: 10
+  _bulletSpawnPoint: {fileID: 1377128145}
 --- !u!114 &1377128153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2704,6 +2704,7 @@ MonoBehaviour:
   _manaSphereBulletWeapon: {fileID: 1377128151}
   _poisonSphereBulletWeapon: {fileID: 1377128152}
   _sphereExortWeapon: {fileID: 1377128154}
+  _thunderboltWeapon: {fileID: 1377128155}
 --- !u!114 &1377128154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2726,16 +2727,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377128140}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4eedb832a6d8ef43bec92b4cf310b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 37b05fb4a49802b40899372b171597bd, type: 3}
-  radius: 10
-  height: 10
-  ThunderboltPrefab: {fileID: 4247986383739388364, guid: e561ca6b515888342b075cf8b517af25, type: 3}
-  HeroTransform: {fileID: 1377128145}
+  _bulletSpeed: 70
+  _bulletPrefab: {fileID: 4247986383739388364, guid: e561ca6b515888342b075cf8b517af25, type: 3}
+  _detectionRadius: 25
+  _bulletSpawnPoint: {fileID: 1377128145}
+  _offsetY: 10
 --- !u!1 &1490141598
 GameObject:
   m_ObjectHideFlags: 0

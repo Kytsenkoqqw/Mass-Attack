@@ -12,31 +12,30 @@ namespace Weapon
     public class ThunderboltWeapon : BulletWeapon<Thunderbolt>
     {
         public override WeaponType Type => WeaponType.Thunderbolt;
-        public float radius = 10.0f; // Радиус падения молнии
-        public float height = 50.0f; // Высота, на которой молния появляется
-        public Thunderbolt ThunderboltPrefab; // Префаб объекта молнии
-        public Transform HeroTransform; // Трансформ героя
+        [SerializeField] private float _offsetY;
 
+        protected override float DefaultDamage => 40;
+        protected override float DelayShoot => 3;
 
         
 
-        protected override void ShootBullet()
-        {
-            base.ShootBullet();
-        }
-
         protected override void ChoiceShootBullet()
         {
-            base.ChoiceShootBullet();
+           SpawnBullet().AddForce(Vector3.down * _bulletSpeed, ForceMode.Impulse);
+        }
+
+        protected override void LineShootBullet()
+        {
+          
         }
 
         protected override Rigidbody SpawnBullet()
         {
-            // Создайте экземпляр молнии
-            Thunderbolt thunderbolt = Instantiate(ThunderboltPrefab, _target.position,quaternion.identity);
-
-            // Вызовите метод для настройки позиции молнии
-            thunderbolt.SpawnAtPosition(HeroTransform.position);
+            var position = new Vector3(_target.position.x, _target.position.y + _offsetY, _target.position.z);
+            Thunderbolt thunderbolt = Instantiate(_bulletPrefab, position ,quaternion.identity);
+            var rb = thunderbolt.GetComponent<Rigidbody>();
+            thunderbolt.Damage = Damage;
+            return rb;
         }
     }
 }

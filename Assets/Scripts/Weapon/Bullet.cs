@@ -18,13 +18,18 @@ namespace Weapon
             if (damageable != null)
             {
                 damageable.TakeDamage(Damage);
-                Destroy(gameObject);
+                DestroyThis();
             }
         }
-        
+
         IEnumerator FirstDieBullet()
         {
             yield return  new WaitForSeconds(4f);
+            Destroy(gameObject);
+        }
+
+        protected virtual void DestroyThis()
+        {
             Destroy(gameObject);
         }
     }

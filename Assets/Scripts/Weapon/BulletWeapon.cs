@@ -6,14 +6,16 @@ namespace Weapon
     public abstract class BulletWeapon<TBullet> : Weapon where TBullet : Bullet
     {
         protected virtual float DelayShoot { set; get; } = 1f;
+        protected Transform _target;
+        
+        [SerializeField] protected float _bulletSpeed;
+        [SerializeField] protected TBullet _bulletPrefab;
         
         [SerializeField] private float _detectionRadius = 10f;
-        [SerializeField] public Transform _bulletSpawnPoint;
-        [SerializeField] private float _bulletSpeed;
-        [SerializeField] private TBullet _bulletPrefab;
+        [SerializeField] private Transform _bulletSpawnPoint;
+       
         
-        protected Transform _target;
-   
+        
         private void Start()
         {
             StartCoroutine(ShootDelay());
@@ -46,12 +48,12 @@ namespace Weapon
             return rb;
         }
 
-        protected virtual void ShootBullet()
+        protected virtual void ChoiceShootBullet()
         {
             SpawnBullet().velocity = (_target.position - _bulletSpawnPoint.position).normalized * _bulletSpeed;
         }
 
-        protected virtual void ChoiceShootBullet()
+        protected virtual void LineShootBullet()
         {
             SpawnBullet().velocity = transform.forward * _bulletSpeed;
         }
@@ -62,12 +64,12 @@ namespace Weapon
             {
                 if (_target != null)
                 {
-                    ShootBullet();
+                    ChoiceShootBullet();
                     yield return new WaitForSeconds(DelayShoot);
                 }
                 else if (_target == null)
                 {
-                    ChoiceShootBullet();
+                    LineShootBullet();
                     yield return new WaitForSeconds(DelayShoot);
                 }
                 else

@@ -7,13 +7,20 @@ namespace Weapon
 {
     public class WeaponManager: MonoBehaviour, IWeaponManager
     {
-        public IReadOnlyList<IWeapon> Weapons => new List<IWeapon>(){_fireballBulletWeapon,_manaSphereBulletWeapon,_poisonSphereBulletWeapon, _sphereExortWeapon};
+        public IReadOnlyList<IWeapon> Weapons => new List<IWeapon>()
+        {
+            _fireballBulletWeapon,
+            _manaSphereBulletWeapon,
+            _poisonSphereBulletWeapon,
+            _sphereExortWeapon,
+            _thunderboltWeapon
+        };
         public static IWeaponManager instance;
         [SerializeField] private BulletWeapon<FireBall> _fireballBulletWeapon;
         [SerializeField] private BulletWeapon<ManaSphere> _manaSphereBulletWeapon ;
         [SerializeField] private BulletWeapon<PoisonSphere> _poisonSphereBulletWeapon ;
         [SerializeField] private Weapon _sphereExortWeapon;
-        
+        [SerializeField] private BulletWeapon<Thunderbolt> _thunderboltWeapon;
 
         public IWeapon GetWeapon (WeaponType type)
         {
@@ -27,6 +34,8 @@ namespace Weapon
                     return _poisonSphereBulletWeapon;
                 case WeaponType.Exort:
                     return _sphereExortWeapon;
+                case WeaponType.Thunderbolt:
+                    return _thunderboltWeapon;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
                 
