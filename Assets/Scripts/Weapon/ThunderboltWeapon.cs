@@ -1,24 +1,44 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using Weapon;
+using Random = UnityEngine.Random;
 
-public class ThunderboltWeapon : MonoBehaviour
+namespace Weapon
 {
-    public float radius = 10.0f; // Радиус падения молнии
-    public float height = 50.0f; // Высота, на которой молния появляется
-
-    public void SpawnAtPosition(Vector3 position)
+    public class ThunderboltWeapon : BulletWeapon<Thunderbolt>
     {
-        // Задайте позицию молнии
-        transform.position = new Vector3(position.x, height, position.z);
+        public override WeaponType Type => WeaponType.Thunderbolt;
+        public float radius = 10.0f; // Радиус падения молнии
+        public float height = 50.0f; // Высота, на которой молния появляется
+        public Thunderbolt ThunderboltPrefab; // Префаб объекта молнии
+        public Transform HeroTransform; // Трансформ героя
 
-        // Генерируйте случайные координаты в пределах радиуса
-        float randomX = Random.Range(-radius, radius);
-        float randomZ = Random.Range(-radius, radius);
 
-        // Добавьте случайные смещения к позиции молнии
-        transform.position += new Vector3(randomX, 0, randomZ);
+        
+
+        protected override void ShootBullet()
+        {
+            base.ShootBullet();
+        }
+
+        protected override void ChoiceShootBullet()
+        {
+            base.ChoiceShootBullet();
+        }
+
+        protected override Rigidbody SpawnBullet()
+        {
+            // Создайте экземпляр молнии
+            Thunderbolt thunderbolt = Instantiate(ThunderboltPrefab, _target.position,quaternion.identity);
+
+            // Вызовите метод для настройки позиции молнии
+            thunderbolt.SpawnAtPosition(HeroTransform.position);
+        }
     }
 }
+
+

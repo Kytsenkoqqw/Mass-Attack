@@ -12,7 +12,7 @@ namespace Weapon
         [SerializeField] private float _bulletSpeed;
         [SerializeField] private TBullet _bulletPrefab;
         
-        private Transform _target;
+        protected Transform _target;
    
         private void Start()
         {
@@ -38,7 +38,7 @@ namespace Weapon
             }
         }
         
-        private Rigidbody SpawnBullet()
+        protected virtual Rigidbody SpawnBullet()
         {
             var bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
             var rb = bullet.GetComponent<Rigidbody>();
@@ -46,12 +46,12 @@ namespace Weapon
             return rb;
         }
 
-        private void ShootBullet()
+        protected virtual void ShootBullet()
         {
             SpawnBullet().velocity = (_target.position - _bulletSpawnPoint.position).normalized * _bulletSpeed;
         }
 
-        private void ChoiceShootBullet()
+        protected virtual void ChoiceShootBullet()
         {
             SpawnBullet().velocity = transform.forward * _bulletSpeed;
         }
