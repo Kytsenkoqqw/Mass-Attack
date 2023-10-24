@@ -148,4 +148,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   rotationSpeed: 5
-  radius: 8
+  radius: 2
+  BaseAngle: 0

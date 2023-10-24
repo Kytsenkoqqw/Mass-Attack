@@ -7,8 +7,10 @@ public class ExortSphere : MonoBehaviour, IDamageGiver
 {
     public Transform Player; // Ссылка на объект героя.
     [SerializeField ]private float rotationSpeed = 30.0f; // Скорость вращения сферы.
-    [SerializeField] private float radius = 5.0f; // Радиус вращения вокруг героя.
+    [HideInInspector]public float Radius = 5.0f; // Радиус вращения вокруг героя.
     private float _angle = 0.0f;
+    public float BaseAngle;
+    
     public float Damage { get; set; }
 
     private void Update()
@@ -22,8 +24,8 @@ public class ExortSphere : MonoBehaviour, IDamageGiver
         _angle += rotationSpeed * Time.deltaTime;
 
         // Вычисляем новую позицию сферы вокруг героя.
-        float x = Player.position.x + Mathf.Cos(_angle) * radius;
-        float z = Player.position.z + Mathf.Sin(_angle) * radius;
+        float x = Player.position.x + Mathf.Cos(_angle + BaseAngle) * Radius;
+        float z = Player.position.z + Mathf.Sin(_angle + BaseAngle) * Radius;
 
         // Устанавливаем новую позицию сферы.
         transform.position = new Vector3(x, transform.position.y, z);

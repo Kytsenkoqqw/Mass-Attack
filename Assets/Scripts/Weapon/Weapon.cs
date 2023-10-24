@@ -22,7 +22,9 @@ namespace Weapon
             }
             Level++;
             OnLevelUp?.Invoke(Level);
+            LevelUpInternal();
         }
+        
 
         public (int, float) GetPredicateStats()
         {
@@ -30,6 +32,11 @@ namespace Weapon
             (int, float) stats = (Level, Damage);
             Level--;
             return stats;
+        }
+
+        protected virtual void LevelUpInternal()
+        {
+            
         }
     }
 }
