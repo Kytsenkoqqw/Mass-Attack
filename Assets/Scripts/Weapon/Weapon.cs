@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Weapon
 {
@@ -6,6 +7,7 @@ namespace Weapon
     {
         
         public abstract WeaponType Type { get; }
+        public event Action <int>OnLevelUp;
         public int Level { private set; get; } = 0;
         public virtual float Damage => DefaultDamage * Level + 10;
         public Sprite Icon => _icon;
@@ -19,6 +21,7 @@ namespace Weapon
                 enabled = true;
             }
             Level++;
+            OnLevelUp?.Invoke(Level);
         }
 
         public (int, float) GetPredicateStats()

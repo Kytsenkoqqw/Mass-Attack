@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2732,7 +2732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4eedb832a6d8ef43bec92b4cf310b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: 37b05fb4a49802b40899372b171597bd, type: 3}
+  _icon: {fileID: 21300000, guid: bba3e87b7e44a3743a9a4736321388c1, type: 3}
   _bulletSpeed: 70
   _bulletPrefab: {fileID: 4247986383739388364, guid: e561ca6b515888342b075cf8b517af25, type: 3}
   _detectionRadius: 25
