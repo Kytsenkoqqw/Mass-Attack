@@ -1,9 +1,11 @@
-﻿﻿using UnityEngine;
+﻿﻿using System;
+ using UnityEngine;
 
 namespace Weapon
 {
     public interface IWeapon
     {
+        public event Action <int>OnLevelUp;
         public  WeaponType Type { get; }
         public int Level { get; }
         public float Damage { get; }
