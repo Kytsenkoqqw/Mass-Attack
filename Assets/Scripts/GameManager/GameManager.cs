@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [FormerlySerializedAs("OffHpCanvas")] [SerializeField] private  GameObject _hpCanvas;
     [FormerlySerializedAs("LevelUpMenu")] [SerializeField] private  GameObject _levelUpMenu;
     [SerializeField] private GameObject _player;
+    [SerializeField] private ChestPanel _chestPanel;
     public static GameManager instance;
 
     private void Awake()
@@ -86,5 +87,12 @@ public class GameManager : MonoBehaviour
     {
         _levelUpMenu.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void ShowChest(IWeapon weapon)
+    {
+        _chestPanel.gameObject.SetActive(true);
+        _chestPanel.ReDraw(weapon);
+        Time.timeScale = 0f;
     }
 }

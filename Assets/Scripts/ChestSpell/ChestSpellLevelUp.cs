@@ -11,8 +11,9 @@ public class ChestSpellLevelUp : MonoBehaviour
     {
         if (other.TryGetComponent(out PlayerHealth playerHealth))
         {
-            var weapons =new List<IWeapon>(WeaponManager.instance.ActiveWeapons); 
+            var weapons = new List<IWeapon>(WeaponManager.instance.ActiveWeapons); 
             weapons.Shuffle();
+            GameManager.instance.ShowChest(weapons[0]);
             weapons[0].LevelUp();
             Destroy(gameObject);
         }
