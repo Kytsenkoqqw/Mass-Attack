@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
     [FormerlySerializedAs("OffHpCanvas")] [SerializeField] private  GameObject _hpCanvas;
     [FormerlySerializedAs("LevelUpMenu")] [SerializeField] private  GameObject _levelUpMenu;
     [SerializeField] private GameObject _player;
+    [SerializeField] private Image _fireBallImage;
+    [SerializeField] private Image _manaSphereImage;
+    [SerializeField] private Image _poisonSphereImage;   
+    private IWeaponManager _weaponManager;
     public static GameManager instance;
 
     private void Awake()
@@ -27,10 +31,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerHealth.instance.OnDie += OnDie;
+        PlayerHealth.instance.OnDie+= OnDie;
         PlayerCharacter.instance.LevelUp += LevelUp;
         _levelUpMenu.SetActive(true);
         Time.timeScale = 0;
+        _fireBallImage.gameObject.SetActive(false);
+        _manaSphereImage.gameObject.SetActive(false);
+        _poisonSphereImage.gameObject.SetActive(false);
+        _weaponManager = WeaponManager.instance;
     }
     
     private void OnDestroy()
