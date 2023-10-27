@@ -36,7 +36,7 @@ public class SpellPanelManager : MonoBehaviour
     private void ReDraw()
     {
         Clear();
-        var  weapons = WeaponManager.instance.Weapons.Where(weapon => weapon.Level > 0);
+        var weapons = WeaponManager.instance.ActiveWeapons;
         foreach (var weapon in weapons)
         {
             Instantiate(_prefab, _parent).Init(weapon.Icon);

@@ -15,6 +15,8 @@ namespace Weapon
             _sphereExortWeapon,
             _thunderboltWeapon
         };
+
+        public IReadOnlyList<IWeapon> ActiveWeapons => Weapons.Where(weapon => weapon.Level > 0).ToList();
         public static IWeaponManager instance;
         [SerializeField] private BulletWeapon<FireBall> _fireballBulletWeapon;
         [SerializeField] private BulletWeapon<ManaSphere> _manaSphereBulletWeapon ;
