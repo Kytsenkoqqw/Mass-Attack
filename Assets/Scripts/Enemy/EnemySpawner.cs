@@ -10,10 +10,17 @@ public class EnemySpawner : MonoBehaviour
     private PlayerController player;
     public Transform[] spawnPoints;
     public Enemy[] enemyPrefabs;
+    [SerializeField ]private Enemy _bullBossPrefab;
     
     private void Start()
     {
         player = GameObject.FindObjectOfType<PlayerController>();
+        PlayerCharacter.instance.OnLevelUp += OnLevelUp;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerCharacter.instance.OnLevelUp -= OnLevelUp;
     }
 
     private void Update()
@@ -29,14 +36,31 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
+        Spawn(enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)]);
+    }
+
+    private void SpawnBullBoss()
+    {
+        Spawn(_bullBossPrefab);
+    }
+
+    private void Spawn(Enemy enemyPrefab)
+    {
         Transform randomSpawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
-        Enemy randomEnemyPrefab = enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)];
-        var newEnemy = Instantiate(randomEnemyPrefab, randomSpawnPoint.position, Quaternion.identity);
-        
+        var newEnemy = Instantiate(enemyPrefab, randomSpawnPoint.position, Quaternion.identity);
+
         if (player != null)
         {
             newEnemy.transform.LookAt(player.transform);
             newEnemy.target = player.transform;
+        }
+    }
+
+    private void OnLevelUp(int level)
+    {
+        if (level == 3)
+        {
+            SpawnBullBoss();
         }
     }
 }

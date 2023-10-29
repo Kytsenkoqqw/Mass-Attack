@@ -12,7 +12,7 @@ public class PlayerCharacter : MonoBehaviour, ILevelSystem
     public int ExperienceToNextLevel { get; private set; } = 100;
     private Enemy currentEnemy;
     public event Action <int> OnChangeXp;
-    public event Action <int>LevelUp;
+    public event Action <int>OnLevelUp;
     public static PlayerCharacter instance;
     
     
@@ -30,7 +30,7 @@ public class PlayerCharacter : MonoBehaviour, ILevelSystem
         if (Experience >= ExperienceToNextLevel)
         {
             IncreaseLevel();
-            LevelUp?.Invoke(Level);
+            OnLevelUp?.Invoke(Level);
         }
         OnChangeXp?.Invoke(Experience);
         

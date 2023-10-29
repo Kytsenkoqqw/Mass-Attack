@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         PlayerHealth.instance.OnDie += OnDie;
-        PlayerCharacter.instance.LevelUp += LevelUp;
+        PlayerCharacter.instance.OnLevelUp += OnLevelUp;
         _levelUpMenu.SetActive(true);
         Time.timeScale = 0;
     }
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     private void OnDestroy()
     {
         PlayerHealth.instance.OnDie-= OnDie;
-        PlayerCharacter.instance.LevelUp -= LevelUp;
+        PlayerCharacter.instance.OnLevelUp -= OnLevelUp;
     }
 
     private void OnDie()
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    private void LevelUp(int level)
+    private void OnLevelUp(int level)
     {
         _levelUpMenu.SetActive(true);
         Time.timeScale = 0;

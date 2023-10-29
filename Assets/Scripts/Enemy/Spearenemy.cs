@@ -7,14 +7,7 @@ public class SpearEnemy : Enemy
     public Transform spearTarget;
     public float pushForce = 10f; 
     public float pushDistance = 2f;
-
-    protected override void FixedUpdate()
-    {
-        if (target != null)
-        {
-            MoveToTarget();
-        }
-    }
+    
     
     void OnCollisionEnter(Collision collision)
     {
@@ -30,12 +23,5 @@ public class SpearEnemy : Enemy
             }
         }
     }
-
-    void MoveToTarget()
-    {
-        Vector3 direction = target.position - transform.position;
-        transform.rotation = Quaternion.LookRotation(direction);
-        Vector3 directionMove = (target.position - transform.position).normalized;
-        rb.MovePosition(transform.position + directionMove * moveSpeed * Time.deltaTime);
-    }
+    
 }

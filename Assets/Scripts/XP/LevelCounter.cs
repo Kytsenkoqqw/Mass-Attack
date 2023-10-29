@@ -12,12 +12,12 @@ public class LevelCounter : PlayerCharacter
     private void Start()
     {
         
-        LevelUp(PlayerCharacter.instance.Level);
-        PlayerCharacter.instance.LevelUp += LevelUp;
+        OnLevelUp(PlayerCharacter.instance.Level);
+        PlayerCharacter.instance.OnLevelUp += OnLevelUp;
     }
     private void OnDestroy()
     {
-        PlayerCharacter.instance.LevelUp -= LevelUp;
+        PlayerCharacter.instance.OnLevelUp -= OnLevelUp;
     }
 
     void Update()
@@ -26,7 +26,7 @@ public class LevelCounter : PlayerCharacter
        
     }
 
-    private void LevelUp( int level)
+    private void OnLevelUp( int level)
     {
         if (_lvlText.text != level.ToString())
         {

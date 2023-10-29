@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
     public float moveSpeed = 15f;
     public Rigidbody rb;
     private Vector3 respawnPosition;
-    public float GetMaxHealth => maxHealth;
+    public virtual float GetMaxHealth => maxHealth;
 
     public float Health
     {
@@ -26,22 +26,24 @@ public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
         }
         private set
         {
-            currentHealth = Mathf.Clamp(value: value, 0f, maxHealth);
+            currentHealth = Mathf.Clamp(value: value, 0f, GetMaxHealth);
         }
     }
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        currentHealth = maxHealth;
+        currentHealth = GetMaxHealth;
     }
     
     protected virtual void FixedUpdate()
     {
         if (target != null)
         {
-            Vector3 direction = (target.position - transform.position).normalized;
-            rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
+            Vector3 direction = target.position - transform.position;
+            transform.rotation = Quaternion.LookRotation(direction);
+            Vector3 directionMove = (target.position - transform.position).normalized;
+            rb.MovePosition(transform.position + directionMove * moveSpeed * Time.deltaTime);
         }
     }
 
@@ -55,6 +57,7 @@ public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
 
     public void TakeDamage(float damage)
     {
+        Debug.Log(Health + "-" + damage);
         Health -= damage;
 
         if (Health <= 0)
