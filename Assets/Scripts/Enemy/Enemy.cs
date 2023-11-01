@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
         }
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody>();
         currentHealth = GetMaxHealth;

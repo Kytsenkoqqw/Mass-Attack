@@ -7,7 +7,7 @@ public class HeartSpawner : MonoBehaviour
 {
     public GameObject objectPrefab;
     public float spawnRadius = 10f;
-    public float interval = 4f;
+    public float interval = 10f;
     private bool canSpawn = false;
     public  Transform playerTransform;
 

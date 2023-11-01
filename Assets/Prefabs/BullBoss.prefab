@@ -154,3 +154,6 @@ MonoBehaviour:
   spearTarget: {fileID: 0}
   pushForce: 500
   pushDistance: 500
+  player: {fileID: 0}
+  detectionRadius: 10
+  stopDuration: 3
