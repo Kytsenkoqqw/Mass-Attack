@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _player;
     [SerializeField] private ChestPanel _chestPanel;
     public static GameManager instance;
+    public float Delay = 4f;
 
     private void Awake()
     {
@@ -94,5 +95,10 @@ public class GameManager : MonoBehaviour
         _chestPanel.gameObject.SetActive(true);
         _chestPanel.ReDraw(weapon);
         Time.timeScale = 0f;
+    }
+
+    IEnumerator DelayLevelMenu()
+    {
+        yield return Delay;
     }
 }

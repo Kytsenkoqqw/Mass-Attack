@@ -1,16 +1,18 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Extention;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 namespace Weapon.UI
 {
     public class WeaponCardManager : MonoBehaviour
-
     {
         [SerializeField] private WeaponCard _prefab;
         [SerializeField] private Transform _parent;
-
+        
+        
         private void Start()
         {
             ReDraw();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +22,20 @@ namespace Weapon.UI
             _level.SetText(level.ToString());
             _icon.sprite = icon;
             _button.onClick.AddListener(()=>onClick?.Invoke());
+            _button.interactable = false;
+        }
+
+        private void OnEnable()
+        {
+            StartCoroutine(DelayMenuLevel());
+        }
+
+        IEnumerator DelayMenuLevel()
+        {
+            Debug.Log("StartDelay");
+            yield return  new WaitForSecondsRealtime(1f);
+            Debug.Log("EndDelay");
+            _button.interactable = true;
         }
     }
 }

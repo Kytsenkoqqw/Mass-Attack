@@ -2912,6 +2912,7 @@ MonoBehaviour:
   _levelUpMenu: {fileID: 1490141598}
   _player: {fileID: 1377128140}
   _chestPanel: {fileID: 864771730}
+  Delay: 4
 --- !u!1 &1368567751
 GameObject:
   m_ObjectHideFlags: 0
@@ -4064,6 +4065,7 @@ GameObject:
   - component: {fileID: 1848677214}
   - component: {fileID: 1848677215}
   - component: {fileID: 1848677216}
+  - component: {fileID: 1848677217}
   m_Layer: 5
   m_Name: SpellPanel
   m_TagString: Untagged
@@ -4131,6 +4133,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3746114248963895221, guid: 6b2b9cece62ba0a4db1d11ddf99dbc7f, type: 3}
   _parent: {fileID: 1848677214}
+--- !u!114 &1848677217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848677213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18f28979c0eb40439ca266bc0660a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2013862339
 GameObject:
   m_ObjectHideFlags: 0

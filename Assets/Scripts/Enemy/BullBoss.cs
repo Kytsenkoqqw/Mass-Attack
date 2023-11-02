@@ -64,9 +64,4 @@ public class BullBoss : SpearEnemy
         yield return new WaitForSeconds(3f);
         detectedPlayer = false;
     }
-
-    private void BullAttack()
-    {
-        
-    }
 }
