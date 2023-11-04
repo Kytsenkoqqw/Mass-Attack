@@ -18,7 +18,7 @@ public class HeartSpawner : MonoBehaviour
 
     IEnumerator EnableSpawning()
     {
-        yield return new WaitForSeconds(2f); 
+        yield return new WaitForSeconds(10f); 
         canSpawn = true;
 
         while (canSpawn)

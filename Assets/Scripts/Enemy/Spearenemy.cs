@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class SpearEnemy : Enemy
 {
-    public Transform spearTarget;
     public float pushForce = 10f; 
     public float pushDistance = 2f;
-    
     
     void OnCollisionEnter(Collision collision)
     {

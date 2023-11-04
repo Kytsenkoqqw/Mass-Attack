@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
     public virtual int GetXp => _xp;
    [SerializeField] private  int _xp = 10;
     private float currentHealth = 100;
+    private PlayerController player;
     private float maxHealth = 100;
     public int damage = 15;
     public Transform target;
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
 
     protected virtual void Start()
     {
+        player = GameObject.FindObjectOfType<PlayerController>();
         rb = GetComponent<Rigidbody>();
         currentHealth = GetMaxHealth;
     }

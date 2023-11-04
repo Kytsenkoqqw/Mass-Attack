@@ -7,7 +7,6 @@ using UnityEngine.Serialization;
 public class BullBoss : SpearEnemy
 {
     public override float GetMaxHealth => 10000f;
-    public PlayerController player;
     public float detectionRadius = 10f; // Радиус обнаружения игрока
     public float stopDuration = 3f; // Длительность остановки в секундах
     private Transform lastKnownPosition;
@@ -19,21 +18,12 @@ public class BullBoss : SpearEnemy
     {
         float distanceToPlayer = Vector3.Distance(transform.position, target.position);
 
-        if (!detectedPlayer)
+        if (!detectedPlayer || (detectedPlayer && distanceToPlayer >= detectionRadius))
         {
             BullRun();
-            
-            if (distanceToPlayer <= detectionRadius)
-            {
-                // Игрок обнаружен, останавливаем босса полностью и запускаем отсчет времени
-                detectedPlayer = true;
-                rb.velocity = Vector3.zero;
-                stopTime = Time.time;
-                Debug.Log("Игрок обнаружен");
-            }
+            detectedPlayer = true;
         }
-
-        if (detectedPlayer && Time.time - stopTime >= stopDuration)
+        else if (detectedPlayer && distanceToPlayer < detectionRadius)
         {
             StartCoroutine(Attack());
         }
@@ -53,15 +43,19 @@ public class BullBoss : SpearEnemy
      private IEnumerator  Attack()
     {
         Vector3 targetPosition = target.position; // Последняя известная позиция игрока
-        float speed = 50f; // Скорость движения быка
-
-        while (Vector3.Distance(transform.position, targetPosition) > 30f)
+        rb.velocity = Vector3.zero;
+        yield return new WaitForSeconds(3f);
+        float speed = 50f;
+        
+        
+        while (transform.position != targetPosition)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         }
-
-        Debug.Log("Бык прибежал");
-        yield return new WaitForSeconds(3f);
+        
         detectedPlayer = false;
+        yield break;
+        Debug.Log("Бык прибежал");
     }
+     
 }

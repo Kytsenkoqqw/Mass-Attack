@@ -2225,13 +2225,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.32089424, y: -0, z: -0, w: 0.94711506}
+  m_LocalRotation: {x: 0.3568182, y: -0, z: -0, w: 0.9341738}
   m_LocalPosition: {x: -7, y: 17.150002, z: -18.25}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 37.434, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 41.81, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3566,6 +3566,80 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8940748021597976733, guid: 6b2b9cece62ba0a4db1d11ddf99dbc7f, type: 3}
   m_PrefabInstance: {fileID: 4097208542429182027}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1544009055
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -819959145472223171, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 057ecc6c28778d141a1ce011ee4a6b22, type: 3}
+    - target: {fileID: -819959145472223171, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 39ae97316dd869c458dcd1d4c656b66a, type: 2}
+    - target: {fileID: -819959145472223171, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'root'\n\tTransform 'root'\n\tFrom animation
+        clip 'IdleBreath'\n\tFrom animation clip 'IdleSnuff'\n\tFrom animation clip
+        'Roar'"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384941039955205297, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: m_Name
+      value: BullBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038362090931497015, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.372313
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038362090931497015, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.8273573
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038362090931497015, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.7112398
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038362090931497015, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038362090931497015, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038362090931497015, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038362090931497015, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038362090931497015, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038362090931497015, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038362090931497015, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4005322173586458143, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
 --- !u!1 &1592055316
 GameObject:
   m_ObjectHideFlags: 0
@@ -4694,3 +4768,4 @@ SceneRoots:
   - {fileID: 627240021}
   - {fileID: 481845932}
   - {fileID: 1454436985}
+  - {fileID: 1544009055}
