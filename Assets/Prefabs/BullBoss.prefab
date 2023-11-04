@@ -155,8 +155,7 @@ MonoBehaviour:
   rb: {fileID: 4004467822689147768}
   pushForce: 500
   pushDistance: 500
-  detectionRadius: 10
-  stopDuration: 3
+  detectionRadius: 20
 --- !u!95 &-819959145472223171
 Animator:
   serializedVersion: 5

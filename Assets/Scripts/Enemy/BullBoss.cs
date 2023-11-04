@@ -7,9 +7,9 @@ using UnityEngine.Serialization;
 public class BullBoss : SpearEnemy
 {
     public override float GetMaxHealth => 10000f;
-    public float detectionRadius = 10f; // Радиус обнаружения игрока
-    public float stopDuration = 3f; // Длительность остановки в секундах
+    [SerializeField] private float detectionRadius;   
     private Transform lastKnownPosition;
+    private Coroutine _run;
     
     private bool detectedPlayer = true;
     private float stopTime = 0f;
@@ -23,15 +23,15 @@ public class BullBoss : SpearEnemy
             BullRun();
             detectedPlayer = true;
         }
-        else if (detectedPlayer && distanceToPlayer < detectionRadius)
+        else if (detectedPlayer && distanceToPlayer < detectionRadius && _run == null)
         {
-            StartCoroutine(Attack());
+           _run = StartCoroutine(Attack());
         }
     }
 
     private void BullRun()
     {
-        if (target != null)
+        if (target != null && _run == null)
         {
             Vector3 direction = target.position - transform.position;
             transform.rotation = Quaternion.LookRotation(direction);
@@ -44,18 +44,26 @@ public class BullBoss : SpearEnemy
     {
         Vector3 targetPosition = target.position; // Последняя известная позиция игрока
         rb.velocity = Vector3.zero;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         float speed = 50f;
-        
-        
+
         while (transform.position != targetPosition)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            yield return null;
         }
         
         detectedPlayer = false;
-        yield break;
+        _run = null;
         Debug.Log("Бык прибежал");
     }
      
 }
+
+// 1 бычара должен при спавне следовать за героем 
+// 2 при входе в радиус героя бык должен полностью останвоится на 3 секунды (типо заряжает атаку)
+// 3 при зарядке атаки бык должен наблюдать за героем 
+// 4 на последней секунде заряда атаки бык запоминает последнюю точку героя 
+// 5 делает разбег з повышенной скоростью в послденюю точку где был герой 
+// 6 бежит по прямой линии в последнюю точку где был герой опеределенную дистанцию 
+// 7 после проведения атаки бык так же бежит за героем и опять если попадает в радиус то делает эту же атаку
