@@ -20,7 +20,7 @@ public class ChunkPlacer : MonoBehaviour
 
     private void Update()
     {
-        if (Player.position.z > spawnedChunks[spawnedChunks.Count - 1].End.position.z)
+        if (Player.position.z > spawnedChunks[spawnedChunks.Count - 1].Begin.position.z)
         {
             SpawnChunk();
         }
@@ -29,7 +29,7 @@ public class ChunkPlacer : MonoBehaviour
     private void SpawnChunk()
     {
         Chunk newChunk = Instantiate(ChunkPrefabs[Random.Range(0, ChunkPrefabs.Length)]);
-        newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].End.position - newChunk.Begin.localPosition;
+        newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].Begin.position - newChunk.End.localPosition;
         spawnedChunks.Add(newChunk);
     }
 }
