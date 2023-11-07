@@ -11,13 +11,14 @@ public class ChunkPlacer : MonoBehaviour
 {
     public Transform Player;
     public Chunk FirstChunk;
-    
+    private float _offset = 25;
     private List<Chunk> spawnedChunks = new List<Chunk>();
+    private Chunk LastSpawnedChunk => spawnedChunks[spawnedChunks.Count - 1];
+    private Chunk PenultimateSpawnedChunk => spawnedChunks[spawnedChunks.Count - 2];
 
     private void Start()
     {
-        Instantiate(FirstChunk);
-        spawnedChunks.Add(FirstChunk);
+        spawnedChunks.Add(Instantiate(FirstChunk));
     }
 
     private void Update()
@@ -31,58 +32,58 @@ public class ChunkPlacer : MonoBehaviour
 
     private void SpawnedChunksBegin()
     {
-        if (Player.position.z > spawnedChunks[spawnedChunks.Count - 1].Begin.position.z - 25)
+        if (Player.position.z > LastSpawnedChunk.Begin.position.z - _offset)
         {
-            Chunk newChunk = Instantiate(FirstChunk);
-            newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].Begin.position - newChunk.End.localPosition;
-            spawnedChunks.Add(newChunk);
+            var newChunk = SpawnNewChunk();
+            newChunk.transform.position = PenultimateSpawnedChunk.Begin.position - newChunk.End.localPosition;
         }
-        
     }
 
-    public void  SpawnedChunksRight()
+    private void  SpawnedChunksRight()
     {
-        if (Player.position.x > spawnedChunks[spawnedChunks.Count - 1].Left.position.x - 25)
+        if (Player.position.x > LastSpawnedChunk.Left.position.x - _offset)
         {
-            Chunk newChunk = Instantiate(FirstChunk);
-            newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].Left.position - newChunk.Right.localPosition;
-            spawnedChunks.Add(newChunk);
+            var newChunk = SpawnNewChunk();
+            newChunk.transform.position = PenultimateSpawnedChunk.Left.position - newChunk.Right.localPosition;
         }
         
     }
     
-    public void  SpawnedChunksLeft()
+    private void  SpawnedChunksLeft()
     {
-        if (Player.position.x < spawnedChunks[spawnedChunks.Count - 1].Right.position.x + 25)
+        if (Player.position.x < LastSpawnedChunk.Right.position.x + _offset)
         {
-            Chunk newChunk = Instantiate(FirstChunk);
-            newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].Right.position - newChunk.Left.localPosition;
-            spawnedChunks.Add(newChunk);
+            var newChunk = SpawnNewChunk();
+            newChunk.transform.position = PenultimateSpawnedChunk.Right.position - newChunk.Left.localPosition;
         }
        
     }
-    
-    public void  SpawnedChunksEnd()
+
+    private void  SpawnedChunksEnd()
     {
-        if (Player.position.z < spawnedChunks[spawnedChunks.Count - 1].End.position.z + 25)
+        if (Player.position.z < LastSpawnedChunk.End.position.z + _offset)
         {
-            Chunk newChunk = Instantiate(FirstChunk);
-            newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].End.position - newChunk.Begin.localPosition;
-            spawnedChunks.Add(newChunk);
+            var newChunk = SpawnNewChunk();
+            newChunk.transform.position = PenultimateSpawnedChunk.End.position - newChunk.Begin.localPosition;
         }
+    }
+
+    private Chunk SpawnNewChunk()
+    {
+        Chunk newChunk = Instantiate(FirstChunk);
+        spawnedChunks.Add(newChunk);
+        return newChunk;
     }
 
     private void DestroyChunks()
     {
         if (spawnedChunks[0] != null)
         {
-            if (spawnedChunks.Count >= 20)
+            if (spawnedChunks.Count >= 3)
             {
                 Destroy(spawnedChunks[0].gameObject);
                 spawnedChunks.RemoveAt(0);
             }
         }
-        else return;
-        
     }
 }

@@ -2,13 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
     public float spawnInterval = 4f;
     private float timeSinceLastSpawn = 0f;
     private PlayerController player;
-    public Transform[] spawnPoints;
     public Enemy[] enemyPrefabs;
     [SerializeField ]private Enemy _bullBossPrefab;
     
@@ -46,11 +46,13 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn(Enemy enemyPrefab)
     {
-        Transform randomSpawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
-        var newEnemy = Instantiate(enemyPrefab, randomSpawnPoint.position, Quaternion.identity);
-
         if (player != null)
         {
+            float spawnRadius = 30f; // Радиус, в котором будут спавниться враги относительно игрока
+            Vector3 randomCirclePoint = UnityEngine.Random.insideUnitCircle.normalized * spawnRadius;
+            Vector3 spawnPosition = new Vector3(randomCirclePoint.x + player.transform.position.x, player.transform.position.y, randomCirclePoint.y + player.transform.position.z);
+            var newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
             newEnemy.transform.LookAt(player.transform);
             newEnemy.target = player.transform;
         }

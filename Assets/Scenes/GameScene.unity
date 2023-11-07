@@ -725,7 +725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &386856469
 Transform:
   m_ObjectHideFlags: 0
@@ -758,11 +758,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnInterval: 1
-  spawnPoints:
-  - {fileID: 1368567752}
-  - {fileID: 827085229}
-  - {fileID: 714071971}
-  - {fileID: 341323357}
   enemyPrefabs:
   - {fileID: 7837164367418973633, guid: e34d0c01643623047be804496ac7a373, type: 3}
   - {fileID: 4057600765857679469, guid: 558d85f0d11979447bbfaad9c450498e, type: 3}
@@ -1533,9 +1528,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1377128145}
     m_Modifications:
+    - target: {fileID: 1045763885817688, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141652980046948, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1248815240492774, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
       propertyPath: m_Name
       value: PolyArtWizardStandardMat
+      objectReference: {fileID: 0}
+    - target: {fileID: 1322346569522534, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4463868907105534, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
       propertyPath: m_LocalScale.x
@@ -4542,7 +4549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1409858597365814400, guid: ac0a84b8dd414bb4dbfbb16846e7ea33, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2571075524126802963, guid: ac0a84b8dd414bb4dbfbb16846e7ea33, type: 3}
       propertyPath: m_Name
