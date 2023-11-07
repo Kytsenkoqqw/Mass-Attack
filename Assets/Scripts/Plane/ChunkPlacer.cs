@@ -11,7 +11,7 @@ public class ChunkPlacer : MonoBehaviour
 {
     public Transform Player;
     public Chunk FirstChunk;
-    private float _offset = 25;
+    private float _offset = 45;
     private List<Chunk> spawnedChunks = new List<Chunk>();
     private Chunk LastSpawnedChunk => spawnedChunks[spawnedChunks.Count - 1];
     private Chunk PenultimateSpawnedChunk => spawnedChunks[spawnedChunks.Count - 2];
