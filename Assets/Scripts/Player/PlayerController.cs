@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private Joystick _joystick;
     [SerializeField] private float _moveSpeed;
-
+    
     private void FixedUpdate()
     {
         _rigidbody.velocity = new Vector3(_joystick.Horizontal * _moveSpeed, _rigidbody.velocity.y, _joystick.Vertical * _moveSpeed);
@@ -17,5 +18,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
         }
+        PlayerAnimations.instance.PlayMoveAnimation(_joystick.Horizontal + _joystick.Vertical);
     }
 }

@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &9145179 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -819959145472223171, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+  m_PrefabInstance: {fileID: 607156725}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &143749493
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,6 +987,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BullBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 1384941039955205297, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2038362090931497015, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.8852615
@@ -1026,6 +1035,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1377128145}
+    - target: {fileID: 4072616447195719301, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 9145179}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3096,6 +3109,7 @@ GameObject:
   - component: {fileID: 1377128154}
   - component: {fileID: 1377128155}
   - component: {fileID: 1377128156}
+  - component: {fileID: 1377128157}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3375,6 +3389,18 @@ CapsuleCollider:
   m_Height: 2.3589017
   m_Direction: 1
   m_Center: {x: -0.036403656, y: 0.05, z: 0}
+--- !u!114 &1377128157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377128140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51695b72c59c492a970d2b8ae90e3231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1411145026 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7919219462976877688, guid: ac0a84b8dd414bb4dbfbb16846e7ea33, type: 3}

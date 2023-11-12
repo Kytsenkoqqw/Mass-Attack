@@ -6,6 +6,7 @@ using UnityEngine.Serialization;
 
 public class BullBoss : SpearEnemy
 {
+    public Animator animator;
     public override float GetMaxHealth => 10000f;
     [SerializeField] private float detectionRadius;   
     private Transform lastKnownPosition;
@@ -13,7 +14,13 @@ public class BullBoss : SpearEnemy
     
     private bool detectedPlayer = true;
     private float stopTime = 0f;
-    
+
+    protected override void Start()
+    {
+        base.Start();
+        animator = GetComponent<Animator>();
+    }
+
     protected override void FixedUpdate()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, target.position);
@@ -44,7 +51,9 @@ public class BullBoss : SpearEnemy
     {
         Vector3 targetPosition = target.position; // Последняя известная позиция игрока
         rb.velocity = Vector3.zero;
+        animator.SetBool("IsRun", false );
         yield return new WaitForSeconds(1.5f);
+        animator.SetBool("IsRun", true );
         float speed = 50f;
 
         while (transform.position != targetPosition)
@@ -60,10 +69,4 @@ public class BullBoss : SpearEnemy
      
 }
 
-// 1 бычара должен при спавне следовать за героем 
-// 2 при входе в радиус героя бык должен полностью останвоится на 3 секунды (типо заряжает атаку)
-// 3 при зарядке атаки бык должен наблюдать за героем 
-// 4 на последней секунде заряда атаки бык запоминает последнюю точку героя 
-// 5 делает разбег з повышенной скоростью в послденюю точку где был герой 
-// 6 бежит по прямой линии в последнюю точку где был герой опеределенную дистанцию 
-// 7 после проведения атаки бык так же бежит за героем и опять если попадает в радиус то делает эту же атаку
+

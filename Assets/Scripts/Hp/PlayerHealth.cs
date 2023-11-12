@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
    public static PlayerHealth instance;
    public event Action<float> OnChangeHP;
    public event Action OnDie;
+   private bool _isDead;
    [SerializeField] private float _hp = 100f;
    public float HP
    { 
@@ -17,9 +19,9 @@ public class PlayerHealth : MonoBehaviour
       set
       {
          _hp = value;
-         if (_hp <= 0)
+         if (_hp <= 0 && _isDead == false)
          {
-            Die();
+            StartCoroutine(Die());
          }
          OnChangeHP?.Invoke(_hp);
       }
@@ -33,10 +35,11 @@ public class PlayerHealth : MonoBehaviour
       }
    }
  
-   private void Die()
+   private IEnumerator Die()
    {
+      _isDead = true;
+      PlayerAnimations.instance.PlayDieAnimation();
+      yield return new WaitForSeconds(1.5f);
       OnDie?.Invoke();
-      
-      Destroy(gameObject);
    }
 }
