@@ -762,9 +762,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c621727ba242b4c4293030a874c27bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 8
+  spawnInterval: 1
   enemyPrefabs:
   - {fileID: 4057600765857679469, guid: 558d85f0d11979447bbfaad9c450498e, type: 3}
+  - {fileID: 7837164367418973633, guid: e34d0c01643623047be804496ac7a373, type: 3}
   _bullBossPrefab: {fileID: 4072616447195719301, guid: 808ad20a63967bc448fee42f23b2ef71, type: 3}
 --- !u!1 &445419351
 GameObject:

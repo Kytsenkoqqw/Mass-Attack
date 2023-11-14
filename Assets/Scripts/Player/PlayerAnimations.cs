@@ -10,6 +10,7 @@ namespace Player
         private Animator _animator;
         private Coroutine _hitCoroutine;
         private Coroutine _chestCoroutine;
+      
         
         private void Awake()
         {
