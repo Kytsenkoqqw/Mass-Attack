@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (player != null)
         {
-            float spawnRadius = 30f; // Радиус, в котором будут спавниться враги относительно игрока
+            float spawnRadius = 30f; 
             Vector3 randomCirclePoint = UnityEngine.Random.insideUnitCircle.normalized * spawnRadius;
             Vector3 spawnPosition = new Vector3(randomCirclePoint.x + player.transform.position.x, player.transform.position.y, randomCirclePoint.y + player.transform.position.z);
             var newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);

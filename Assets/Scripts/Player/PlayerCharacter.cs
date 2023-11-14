@@ -36,11 +36,6 @@ public class PlayerCharacter : MonoBehaviour, ILevelSystem
         
     }
 
-    void Update()
-    {
-       // Debug.Log(  "Текущий Уровень" + Level + " " + "Текущий опыт" + Experience);
-    }
-
     public void IncreaseLevel()
     {
         Level++;

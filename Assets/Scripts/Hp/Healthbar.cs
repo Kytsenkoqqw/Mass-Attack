@@ -10,6 +10,7 @@ public class Healthbar : MonoBehaviour
     public GameObject OffCanvas;
     public static Healthbar instance;
     public Image hpBar;
+    private bool _getHit;
 
     private void Awake()
     {
@@ -32,6 +33,5 @@ public class Healthbar : MonoBehaviour
     {
         var hp = Mathf.Clamp(value, 0, 100);
         hpBar.fillAmount = hp / 100;
-       
     }
 }

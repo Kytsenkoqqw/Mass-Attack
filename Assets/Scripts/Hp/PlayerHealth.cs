@@ -18,6 +18,11 @@ public class PlayerHealth : MonoBehaviour
       get =>_hp;
       set
       {
+         if (value < _hp)
+         {
+            PlayerAnimations.instance.GetHitAnimation();
+         }
+         
          _hp = value;
          if (_hp <= 0 && _isDead == false)
          {
