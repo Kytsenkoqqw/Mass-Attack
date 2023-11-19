@@ -11,7 +11,6 @@ public class BullBoss : SpearEnemy
     [SerializeField] private float detectionRadius;   
     private Transform lastKnownPosition;
     private Coroutine _run;
-    
     private bool detectedPlayer = true;
     private float stopTime = 0f;
 
