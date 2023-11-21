@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public string itemName; // Название предмета
-    public Sprite icon; // Изображение предмета (для отображения в инвентаре)
+   
+    public Sprite icon; 
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             Inventory.instance.AddItem(this);
-            gameObject.SetActive(false); // Скрываем объект предмета после подбора
-           
+            gameObject.SetActive(false);
         }
     }
 }

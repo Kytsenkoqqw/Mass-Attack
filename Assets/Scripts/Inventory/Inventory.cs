@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
+    public Transform slotsParent; 
+    public GameObject slotPrefab; 
     public List<Item> items = new List<Item>();
-    public Transform slotsParent; // Родительский объект для слотов в интерфейсе
-    public GameObject slotPrefab; // Префаб слота в интерфейсе
 
     public void Awake()
     {
@@ -20,21 +20,21 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        CreateSlots();
-    }
-
-    private void CreateSlots()
-    {
-        for (int i = 0; i < items.Count; i++)
+        gameObject.SetActive(false);
+        if (slotsParent == null)
         {
-            GameObject slot = Instantiate(slotPrefab, slotsParent);
-            UpdateSlot(slot, items[i]);
+            GameObject defaultParent = new GameObject("SlotsParent");
+            slotsParent = defaultParent.transform;
+        }
+        
+        foreach (Item item in items)
+        {
+            AddItem(item);
         }
     }
-
+    
     public void AddItem(Item item)
     {
-        items.Add(item);
         GameObject slot = Instantiate(slotPrefab, slotsParent);
         UpdateSlot(slot, item);
     }
@@ -44,10 +44,8 @@ public class Inventory : MonoBehaviour
         Image slotImage = slot.GetComponent<Image>();
         if (slotImage != null)
         {
-            slotImage.sprite = item.icon; // Предполагается, что у Item есть свойство icon
+            slotImage.sprite = item.icon; 
         }
-
-        // Дополните этот метод, чтобы обрабатывать другие аспекты предмета в слоте, например, текстовые метки и дополнительные данные
     }
 }
 

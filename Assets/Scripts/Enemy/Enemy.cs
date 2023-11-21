@@ -8,7 +8,7 @@ using Weapon;
 public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
 {
     public virtual int GetXp => _xp;
-   [SerializeField] private  int _xp = 10;
+    [SerializeField] private  int _xp = 10;
     private float currentHealth = 100;
     private PlayerController player;
     private float maxHealth = 100;
