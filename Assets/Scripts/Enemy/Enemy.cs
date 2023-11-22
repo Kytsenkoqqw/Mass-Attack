@@ -7,6 +7,7 @@ using Weapon;
 
 public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
 {
+    public static event System.Action<GameObject> OnEnemyDeath;
     public virtual int GetXp => _xp;
     [SerializeField] private  int _xp = 10;
     private float currentHealth = 100;
@@ -29,6 +30,12 @@ public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
         {
             currentHealth = Mathf.Clamp(value: value, 0f, GetMaxHealth);
         }
+    }
+    
+    private void OnDestroy()
+    {
+        // Генерируем событие при смерти врага
+        OnEnemyDeath?.Invoke(gameObject);
     }
 
     protected virtual void Start()
