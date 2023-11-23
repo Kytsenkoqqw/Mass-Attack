@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemDropController : MonoBehaviour
 {
     public GameObject[] dropItems; // Массив префабов предметов
-    public float dropRate = 0.5f; // Вероятность выпадения предмета (от 0 до 1)
+    public float dropRate = 2f; // Вероятность выпадения предмета (от 0 до 1)
 
     private void OnEnable()
     {
@@ -35,7 +35,7 @@ public class ItemDropController : MonoBehaviour
         GameObject itemPrefab = dropItems[randomIndex];
 
         // Создаем экземпляр предмета
-        GameObject newItem = Instantiate(itemPrefab, position, Quaternion.identity);
+        GameObject newItem = Instantiate(itemPrefab, position, Quaternion.Euler(-90, 0, 0));
 
         // Можно добавить дополнительные действия для нового предмета, например, запустить анимацию и т.д.
     }
