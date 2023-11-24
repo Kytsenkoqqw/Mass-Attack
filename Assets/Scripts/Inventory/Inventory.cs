@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ItemSkills;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
     public Transform slotsParent; 
-    public GameObject slotPrefab; 
+    public ItemSkillsView slotPrefab; 
     public List<Item> items = new List<Item>();
 
     public void Awake()
@@ -35,17 +36,8 @@ public class Inventory : MonoBehaviour
     
     public void AddItem(Item item)
     {
-        GameObject slot = Instantiate(slotPrefab, slotsParent);
-        UpdateSlot(slot, item);
-    }
-
-    private void UpdateSlot(GameObject slot, Item item)
-    {
-        Image slotImage = slot.GetComponent<Image>();
-        if (slotImage != null)
-        {
-            slotImage.sprite = item.icon; 
-        }
+        ItemSkillsView slot = Instantiate(slotPrefab, slotsParent);
+        slot.Init(item.icon, ()=>SkillsManager.instance.GetSkill(item.spell));
     }
 }
 
