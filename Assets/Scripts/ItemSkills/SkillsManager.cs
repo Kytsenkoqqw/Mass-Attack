@@ -12,10 +12,8 @@ namespace ItemSkills
         public GameObject summonPrefab; 
         public int numberOfSummons = 2;
         public float SpawnDistance = 2f;
-        public GameObject axePrefab;
-        public float rotationSpeed = 180f; // Скорость вращения топоров
+        public GameObject axePrefab; 
         public float axeRadius = 5f; // Радиус, в котором появляются топоры
-        public float axeDuration = 5f;
         public float BaseAngle;
         
         private float _angle = 0.0f;
@@ -43,11 +41,6 @@ namespace ItemSkills
                 Debug.LogError("Summon Prefab not assigned!");
                 return;
             }
-        }
-
-        private void Update()
-        {
-            RotateAxe();
         }
 
         public void GetSkill(ItemSpell spell)
@@ -89,36 +82,25 @@ namespace ItemSkills
         
         private void SpawnAxes()
         {
-            // Цикл для создания топоров
-            for (int i = 0; i < 360; i += 45) // Используем шаг 45 градусов для создания восьми топоров вокруг героя
+            int numberOfAxes = 2; // Количество топоров
+            float angleStep = 180.0f / (numberOfAxes - 1); // Шаг угла между топорами
+
+            for (int i = 0; i < numberOfAxes; i++)
             {
-                // Вычисление позиции для топора вокруг героя
-                float angle = i * Mathf.Deg2Rad;
-                Vector3 summonPosition = heroTransform.position + new Vector3(Mathf.Cos(angle) * axeRadius, 0, Mathf.Sin(angle) * axeRadius);
+                float angle = i * angleStep; // Вычисляем угол для текущего топора
+                float angleInRadians = angle * Mathf.Deg2Rad; // Переводим угол из градусов в радианы
 
-                // Создание топора в вычисленной позиции с начальной ориентацией
-                GameObject axe = Instantiate(axePrefab, summonPosition, Quaternion.identity);
+                // Вычисляем координаты для текущего топора вокруг героя
+                float x = heroTransform.position.x + Mathf.Cos(angleInRadians) * axeRadius;
+                float z = heroTransform.position.z + Mathf.Sin(angleInRadians) * axeRadius;
+
+                // Создаем топор
+                GameObject axe = Instantiate(axePrefab, new Vector3(x, heroTransform.position.y, z),
+                    Quaternion.identity);
+
+                // Поворачиваем топор на 90 градусов
+                axe.transform.Rotate(Vector3.up, 90f);
             }
-        }
-        
-        private void RotateAxe()
-        {
-            _angle += rotationSpeed * Time.deltaTime;
-
-            // Вычисляем новую позицию сферы вокруг героя.
-            float x = heroTransform.position.x + Mathf.Cos(_angle + BaseAngle) * axeRadius;
-            float z = heroTransform.position.z + Mathf.Sin(_angle + BaseAngle) * axeRadius;
-
-            // Устанавливаем новую позицию сферы.
-            transform.position = new Vector3(x, transform.position.y, z);
-            
-        }
-
-        private IEnumerator DestroyAxe()
-        {
-            RotateAxe();
-            yield return new WaitForSeconds(2f);
-            Destroy(gameObject);
         }
     }
 }

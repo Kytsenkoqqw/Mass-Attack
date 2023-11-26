@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemDropController : MonoBehaviour
 {
     public GameObject[] dropItems; // Массив префабов предметов
-    public float dropRate = 0.01f; // Вероятность выпадения предмета (от 0 до 1)
+    public float dropRate = 0.05f; // Вероятность выпадения предмета (от 0 до 1)
 
     private void OnEnable()
     {

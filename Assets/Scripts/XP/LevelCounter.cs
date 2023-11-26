@@ -20,12 +20,6 @@ public class LevelCounter : PlayerCharacter
         PlayerCharacter.instance.OnLevelUp -= OnLevelUp;
     }
 
-    void Update()
-    {
-        
-       
-    }
-
     private void OnLevelUp( int level)
     {
         if (_lvlText.text != level.ToString())
