@@ -7,32 +7,43 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Weapon;
 
-public class Necronomikons : Enemy
+public class Necronomikons : MoveMob, IDamageGiver
 {
+   public float Damage => 100;
    public float DetectionRadius = 30f;
-   public override float GetMaxHealth => 999999999999999999999999999f;
-   private EnemyKamikaze _enemy;
+   private Enemy _enemy;
+
    protected override void Start()
    {
-      _enemy = GameObject.FindObjectOfType<EnemyKamikaze>();
       base.Start();
+      StartCoroutine(DieNecronomikon());
    }
 
-   protected override void FixedUpdate()
+   protected override Transform GetTarget()
    {
-      if (target == null)
+      if (_enemy)
       {
-         _enemy = GameObject.FindObjectOfType<EnemyKamikaze>();
-         target = _enemy.transform;
+         return _enemy.transform;
       }
-      else
-      {
-         base.FixedUpdate();
-      }
-   }
-
-   public override void OnCollisionEnter(Collision other)
-   {
       
+      _enemy = GameObject.FindObjectOfType<Enemy>();
+      return _enemy.transform;
    }
+   
+   private void OnCollisionEnter(Collision other)
+   {
+      IDamageable damageable = other.collider.GetComponent<IDamageable>();
+      if (damageable != null)
+      {
+         damageable.TakeDamage(Damage);
+      }
+   }
+
+   IEnumerator DieNecronomikon()
+   {
+      yield return new WaitForSeconds(5f);
+      Destroy(gameObject);
+   }
+
+
 }

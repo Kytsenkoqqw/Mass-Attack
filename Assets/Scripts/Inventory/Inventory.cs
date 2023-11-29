@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
     public static Inventory instance;
     public Transform slotsParent; 
     public ItemSkillsView slotPrefab; 
-    public List<Item> items = new List<Item>();
+    
 
     public void Awake()
     {
@@ -27,17 +27,16 @@ public class Inventory : MonoBehaviour
             GameObject defaultParent = new GameObject("SlotsParent");
             slotsParent = defaultParent.transform;
         }
-        
-        foreach (Item item in items)
-        {
-            AddItem(item);
-        }
     }
     
     public void AddItem(Item item)
     {
         ItemSkillsView slot = Instantiate(slotPrefab, slotsParent);
-        slot.Init(item.icon, ()=>SkillsManager.instance.GetSkill(item.spell));
+        slot.Init(item.icon, () =>
+        {
+            SkillsManager.instance.GetSkill(item.spell);
+            Destroy(slot.gameObject);
+        });
     }
 }
 

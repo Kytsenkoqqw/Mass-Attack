@@ -5,18 +5,16 @@ using DefaultNamespace;
 using UnityEngine;
 using Weapon;
 
-public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
+public class Enemy : MoveMob, IDamageable, IHealth, IEnemyXP
 {
     public static event System.Action<GameObject> OnEnemyDeath;
     public virtual int GetXp => _xp;
     [SerializeField] private  int _xp = 10;
     private float currentHealth = 100;
-    private PlayerController player;
+    
     private float maxHealth = 100;
     public int damage = 15;
     public Transform target;
-    public float moveSpeed = 15f;
-    public Rigidbody rb;
     private Vector3 respawnPosition;
     public virtual float GetMaxHealth => maxHealth;
 
@@ -38,22 +36,15 @@ public class Enemy : MonoBehaviour, IDamageable, IHealth, IEnemyXP
         OnEnemyDeath?.Invoke(gameObject);
     }
 
-    protected virtual void Start()
+    protected override void Start()
     {
-        player = GameObject.FindObjectOfType<PlayerController>();
-        rb = GetComponent<Rigidbody>();
+        base.Start();
         currentHealth = GetMaxHealth;
     }
-    
-    protected virtual void FixedUpdate()
+
+    protected override Transform GetTarget()
     {
-        if (target != null)
-        {
-            Vector3 direction = target.position - transform.position;
-            transform.rotation = Quaternion.LookRotation(direction);
-            Vector3 directionMove = (target.position - transform.position).normalized;
-            rb.MovePosition(transform.position + directionMove * moveSpeed * Time.deltaTime);
-        }
+        return target;
     }
 
     public virtual void OnCollisionEnter(Collision other)

@@ -9,12 +9,14 @@ public class AxeAttack : MonoBehaviour, IDamageGiver
     public float Damage { get; }
     public float rotationSpeed = 30f;
     public float Radius = 5.0f;
-    private float BaseAngle = 30f;
+    public float BaseAngle = 30f;
     private float _angle = 0.0f;
+    [SerializeField] private float _rotationSpeed = 10f;
 
     private void Update()
-    {
+    { 
         RotateAxe();
+        
     }
 
     private void RotateAxe()
@@ -28,6 +30,7 @@ public class AxeAttack : MonoBehaviour, IDamageGiver
 
         // Устанавливаем новую позицию сферы.
         transform.position = new Vector3(x, transform.position.y, z);
+        transform.Rotate(0, _rotationSpeed * Time.deltaTime, 0);
     }
 
     
