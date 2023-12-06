@@ -10,7 +10,6 @@ using Weapon;
 public class Necronomikons : MoveMob, IDamageGiver
 {
    public float Damage => 100;
-   public float DetectionRadius = 30f;
    private Enemy _enemy;
 
    protected override void Start()

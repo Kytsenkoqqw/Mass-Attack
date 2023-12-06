@@ -134,4 +134,4 @@ MonoBehaviour:
   rotationSpeed: 5
   Radius: 5
   BaseAngle: 30
-  _rotationSpeed: 10
+  _rotationSpeed: 30

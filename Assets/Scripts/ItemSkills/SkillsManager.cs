@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace ItemSkills
 {
     public class SkillsManager : MonoBehaviour
     {
         public static SkillsManager instance;
+        public GameObject arrowPrefab;
+        public int numberOfArrows = 5;
+        public float arrowFallSpeed = 5f;
         public Transform heroTransform; 
         public GameObject summonPrefab; 
         public int numberOfSummons = 2;
@@ -48,6 +53,7 @@ namespace ItemSkills
             switch (spell)
             {
                 case ItemSpell.Bow:
+                    SpawnArrows();
                     break;
                 case ItemSpell.Axe:
                     SpawnAxes();
@@ -102,6 +108,25 @@ namespace ItemSkills
                 axe.BaseAngle = spawnAngle; 
                 _axes.Add(axe);
             }
+        }
+        
+        private void SpawnArrows()
+        {
+            // Создаем заданное количество стрел.
+            for (int i = 0; i < numberOfArrows; i++)
+            {
+                // Создаем префаб стрелы.
+                GameObject arrow = Instantiate(arrowPrefab, GetRandomSpawnPosition(), Quaternion.identity);
+            }
+        }
+
+        private Vector3 GetRandomSpawnPosition()
+        {
+            // Генерируем случайную позицию в пределах экрана (высота = 10, ширина = 10, для примера).
+            float randomX = Random.Range(-5f, 5f);
+            float randomZ = Random.Range(-5f, 5f);
+
+            return new Vector3(randomX, 10f, randomZ);
         }
     }
 }

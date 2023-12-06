@@ -30,7 +30,7 @@ public class AxeAttack : MonoBehaviour, IDamageGiver
 
         // Устанавливаем новую позицию сферы.
         transform.position = new Vector3(x, transform.position.y, z);
-        transform.Rotate(0, _rotationSpeed * Time.deltaTime, 0);
+        transform.Rotate(-8, 0, 0);
     }
 
     

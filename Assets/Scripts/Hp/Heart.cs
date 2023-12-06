@@ -5,7 +5,17 @@ using UnityEngine;
 
 public class Heart : MonoBehaviour
 {
+    public Heart instance;
     [SerializeField] private float RotationSpeed = 60f;
+
+    public void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out PlayerHealth playerHealth))
